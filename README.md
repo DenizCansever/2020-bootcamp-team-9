@@ -2,10 +2,12 @@
 
 ## Team Members
 
-| Role               | Name     |
-| ------------------ | -------- |
-| Frontend Developer | John Doe |
-| Backend Developer  | Jane Doe |
+| Role                | Name   |
+| ------------------- | ------ |
+| Fullstack Developer | Filiz  |
+| Fullstack Developer | Zeynep |
+| Fullstack Developer | Ali    |
+| Fullstack Developer | Deniz  |
 
 ## Project
 
