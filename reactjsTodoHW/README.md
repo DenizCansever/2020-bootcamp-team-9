@@ -5,10 +5,10 @@ This is the code for todolist with using React JS
 ## Quick Start
 
 ```bash
-# Install dependencies
+# Install modules
 npm install
 
-# Serve on localhost:3000
+# Runs on localhost:3000
 npm start
 
 # Build for production
