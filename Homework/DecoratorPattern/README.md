@@ -5,4 +5,4 @@ Decorator design pattern is used to modify the functionality of an object at run
 This application calculates the total price the user will pay when ordering products from the online market using the decorator design pattern. If the user will pre-order, a 10% discount is made and the price is updated. If the user is a premium member, an additional 8% discount is applied on the pre-order. Updated payment results are shown on the screen.
 
 
-![alt text](https://github.com/eteration-bootcamp/2020-bootcamp-team-9/blob/master/Homework/DecoratorPattern/DecoratorUMLDiagram.ucls?raw=true)
+![alt text](https://github.com/eteration-bootcamp/2020-bootcamp-team-9/blob/master/Homework/DecoratorPattern/DecoratorUMLDiagram.jpg?raw=true)
