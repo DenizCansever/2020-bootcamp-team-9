@@ -14,6 +14,11 @@ Composite pattern organizes hierarchies. We considered course types and course h
 
 <p align="center">
   <img src="https://github.com/eteration-bootcamp/2020-bootcamp-team-9/blob/master/Homework/CompositePattern/images/compositepattern_UMLClassDiagram.png?raw=true" />
+  </p>
+
+### Detailed UML Class Diagram
+
+<p align="center">
   <img src="https://github.com/eteration-bootcamp/2020-bootcamp-team-9/blob/master/Homework/CompositePattern/images/CompositePatternUMLClassDiagram.png?raw=true" />
 </p>
 
