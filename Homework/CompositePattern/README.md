@@ -10,10 +10,12 @@ Composite pattern organizes hierarchies. We considered course types and course h
 * Component -> ICourse:  Component declares the interface for objects in the composition and for accessing and managing its child components. It also implements default behavior for the interface common to all classes as appropriate.
 * Leaf -> Course: Leaf defines behavior for primitive objects in the composition. It represents leaf objects in the composition.
 * Composite -> CourseType: Composite stores child components and implements child related operations in the component interface.
-* CompositeDemo -> Client: Client manipulates the objects in the composition through the component interface.
+* Client -> CompositeDemo: Client manipulates the objects in the composition through the component interface.
 
 ![alt text](https://github.com/eteration-bootcamp/2020-bootcamp-team-9/blob/master/Homework/CompositePattern/images/compositepattern_UMLClassDiagram.png?raw=true)
 
 ![alt text](https://github.com/eteration-bootcamp/2020-bootcamp-team-9/blob/master/Homework/CompositePattern/images/CompositePatternUMLClassDiagram.png?raw=true)
 
-
+<p align="center">
+  <img src="https://github.com/eteration-bootcamp/2020-bootcamp-team-9/blob/master/Homework/CompositePattern/images/compositepattern_UMLClassDiagram.png?raw=true" />
+</p>
