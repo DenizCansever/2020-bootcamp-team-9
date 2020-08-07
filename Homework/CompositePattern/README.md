@@ -8,3 +8,4 @@ Composite pattern organizes hierarchies. As an example of this hierarchy, we con
 #### Composite Design Pattern – UML Class Diagram
 
 ![alt text](https://github.com/eteration-bootcamp/2020-bootcamp-team-9/blob/master/Homework/CompositePattern/images/CompositePatternUMLClassDiagram.png?raw=true)
+
