@@ -6,4 +6,5 @@ The composite design pattern belongs to the structural group and is to regulate 
 Composite pattern organizes hierarchies. As an example of this hierarchy, we considered course catalogs and course hierarchy. At the top are the course catalogs. Then, again, course catalogs or lessons can be found under it. This ranking goes all the way to the bottom lessons.
 
 #### Composite Design Pattern – UML Class Diagram
+
 ![alt text](https://github.com/eteration-bootcamp/2020-bootcamp-team-9/blob/master/Homework/CompositePattern/images/CompositePatternUMLClassDiagram.png?raw=true)
