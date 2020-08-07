@@ -8,7 +8,8 @@ public class Person{
     private int salary;
     private int age;
 
-    public Person() { //default constructor
+    //default constructor
+    public Person() { 
 
         this("Deniz","Cansever","Software Developer",5000,26);
     }
@@ -68,11 +69,14 @@ public class Person{
         this.age = age;
     }
 
+    /* A method will a long parameter list can be difficult to use and increases the chance of 
+       wrong mappings due to oversight. The usage below is an example of this situation. */
     public String raise(String firstName,String lastName,String position, int salary,int age) {
         salary += 500;
         return "Full Name: " + firstName + " " + lastName + "\nPosition: " + position + "\nSalary: " + salary + "\nAge: " + age;
     }
 
+    /* Here, we have achieved proper encapsulation. */
     public String raise(Person person) {
         this.salary += 500;
         return toString();
