@@ -13,13 +13,13 @@ Composite pattern organizes hierarchies. We considered course types and course h
 * Client -> CompositeDemo: Client manipulates the objects in the composition through the component interface.
 
 <p align="center">
-  <img witdth="480px" height="230px" src="https://github.com/eteration-bootcamp/2020-bootcamp-team-9/blob/master/Homework/CompositePattern/images/compositepattern_UMLClassDiagram.png?raw=true" />
+  <img witdth="500px" height="250px" src="https://github.com/eteration-bootcamp/2020-bootcamp-team-9/blob/master/Homework/CompositePattern/images/compositepattern_UMLClassDiagram.png?raw=true" />
   </p>
 
 #### Detailed UML Class Diagram
 
 <p align="center">
-  <img witdth="480px" height="230px" src="https://github.com/eteration-bootcamp/2020-bootcamp-team-9/blob/master/Homework/CompositePattern/images/CompositePatternUMLClassDiagram.png?raw=true" />
+  <img witdth="500px" height="250px" src="https://github.com/eteration-bootcamp/2020-bootcamp-team-9/blob/master/Homework/CompositePattern/images/CompositePatternUMLClassDiagram.png?raw=true" />
 </p>
 
 

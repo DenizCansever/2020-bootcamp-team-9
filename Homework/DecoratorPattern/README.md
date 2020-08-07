@@ -10,4 +10,6 @@ This application calculates the total price the user will pay when ordering prod
 
 ##### Decorator Design Pattern – UML Class Diagram
 
-![alt text](https://github.com/eteration-bootcamp/2020-bootcamp-team-9/blob/master/Homework/DecoratorPattern/DecoratorUMLDiagram.jpg?raw=true)
+<p align="center">
+  <img witdth="500px" height="250px" src="https://github.com/eteration-bootcamp/2020-bootcamp-team-9/blob/master/Homework/DecoratorPattern/DecoratorUMLDiagram.jpg?raw=true" />
+</p>
