@@ -8,6 +8,7 @@
 | Fullstack Developer | Zeynep |
 | Fullstack Developer | Ali    |
 | Fullstack Developer | Deniz  |
+| Fullstack Developer | Burak  |
 
 ## Project
 
