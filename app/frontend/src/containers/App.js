@@ -1,8 +1,8 @@
 import React from "react";
 
-import Home from "./pages/Home";
-import Tv from "./pages/Tv";
-import SignIn from "./components/authentication/SignIn"
+import Home from "./Home";
+import Tv from "./Tv";
+import SignIn from "../components/authentication/SignIn"
 
 import {
   BrowserRouter as Router,
