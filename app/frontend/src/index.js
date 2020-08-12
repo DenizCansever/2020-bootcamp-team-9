@@ -2,19 +2,48 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./containers/App";
 import * as serviceWorker from "./serviceWorker";
-import { Provider } from 'react-redux';
-import { createStore } from 'redux'
-import createReducer from './redux'
+import { Provider, useSelector } from 'react-redux';
+import { createStore, compose, applyMiddleware } from 'redux'
+import rootReducer from './redux/rootReducer'
 import './theme/bootstrap.scss';
+import thunk from 'redux-thunk'
+import { reduxFirestore, getFirestore, createFirestoreInstance } from 'redux-firestore'
+import { ReactReduxFirebaseProvider, getFirebase, isLoaded } from 'react-redux-firebase'
+import firebaseConfig from './config/firebaseConfig'
+import firebase from 'firebase/app';
 
-const store = createStore(
-  createReducer,
-)
+const store = createStore(rootReducer,
+  compose(
+    applyMiddleware(thunk.withExtraArgument({ getFirestore, getFirebase })),
+    reduxFirestore(firebaseConfig),
+
+  )
+);
+
+const rrfProps = {
+  firebase,
+  config: firebaseConfig,
+  dispatch: store.dispatch,
+  createFirestoreInstance,
+  userProfile: 'users', // where profiles are stored in database
+  presence: 'presence', // where list of online users is stored in database
+  sessions: 'sessions'
+};
+
+function AuthIsLoaded({ children }) {
+  const auth = useSelector(state => state.firebase.auth)
+  if (!isLoaded(auth)) return <div>Loading Screen...</div>;
+  return children
+}
 
 ReactDOM.render(
-    <Provider store={store}>
-      <App />
-    </Provider>,
+  <Provider store={store}>
+    <ReactReduxFirebaseProvider {...rrfProps}>
+      <AuthIsLoaded>
+        <App />
+      </AuthIsLoaded>
+    </ReactReduxFirebaseProvider>
+  </Provider>,
   document.getElementById('root')
 );
 
