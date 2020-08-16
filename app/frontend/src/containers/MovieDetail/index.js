@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import SectionHero from "../../components/content_pages/SectionHero";
-import SectionMoreDetails from "../../components/content_pages/SectionMoreDetails";
+import SectionHero from "../../components/layout/SectionHero";
+import SectionMoreDetails from "../../components/layout/SectionMoreDetails";
 import moviedata from "../../data/moviedata.json";
 import { Row, Col } from "react-bootstrap";
 import {
