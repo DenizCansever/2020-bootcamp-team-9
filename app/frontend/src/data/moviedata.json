@@ -1,0 +1,16 @@
+[
+  {
+    "id": "0",
+    "title": "Harry Potter",
+    "year": "2000",
+    "runTime": "2 sa. 30 dk.",
+    "genres": "Aile",
+    "overview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vestibulum metus eu dui gravida placerat. Nullam interdum volutpat nunc at pulvinar. Sed a leo in erat vestibulum egestas. Vestibulum sollicitudin nisi laoreet lectus hendrerit fermentum.",
+    "director": "director",
+    "tagline": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "released": "released",
+    "rating": "rating",
+    "country": "country",
+    "votes": "votes"
+  }
+]
