@@ -1,3 +1,15 @@
+.btn {
+  &-addlist {
+    background-color: #7c9fdb;
+    color: #1e1f26;
+    font-weight: bold;
+    border-style: rounded;
+    border-width: medium;
+    border: solid #d0e1f9;
+    border-radius: 20px;
+  }
+}
+
 // .btn {
 //     &-primary{
 //         background-color: #f00;
@@ -7,7 +19,7 @@
 // }
 
 // .logout-button
-//     { 
+//     {
 //         border: 'none';
 //         background-color: rgba(255, 255, 255, 0);
 //         color: rgba(255, 255, 255, 0.5);
@@ -21,5 +33,5 @@
 //             outline: 'none';
 //             box-shadow: 'none';
 //          }
-    
+
 //     }

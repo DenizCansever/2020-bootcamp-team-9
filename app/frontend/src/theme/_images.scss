@@ -1,0 +1,17 @@
+.image {
+  &-hero {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+    background: linear-gradient(
+        to right,
+        rgb(30, 31, 38),
+        rgba(30, 31, 38, 0.9),
+        rgba(30, 31, 38, 0.9),
+        rgba(30, 31, 38, 0.5),
+        rgba(0, 0, 0, 0)
+      ),
+      url(bayern.jpg) no-repeat center;
+    background-size: cover;
+  }
+}
