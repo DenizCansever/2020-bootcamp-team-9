@@ -1,12 +1,12 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Nav } from 'react-bootstrap'
 
 const SignOutLink = () => {
     return (
-        <ul className="right ">
-            <li><NavLink to='/signup'>SIGN UP</NavLink></li>
-            <li><NavLink to='/signin'>LOGIN</NavLink></li>
-        </ul>
+        <Nav>
+            <Nav.Link href='/signup'>SIGN UP</Nav.Link>
+            <Nav.Link href='/signin'> SIGN IN</Nav.Link>
+        </Nav>
     )
 }
 

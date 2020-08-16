@@ -1,31 +1,36 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import SignInLink from "./SignInLink"
 import SignOutLink from "./SignOutLink"
 import { connect } from 'react-redux'
+import { Navbar as DCNavbar, Nav } from 'react-bootstrap';
 
 const Navbar = (props) => {
     const { auth } = props;
-    //console.log(auth)
+
     const links = auth.uid ? <SignInLink /> : <SignOutLink />;
 
     return (
-        <nav className="nav-wrapper black">
-            <div className="container">
-                <Link to='/' className="brand-logo center">District X</Link>
-                <ul className="left ">
-                    <li><Link to='/tv'>TV</Link></li>
-                    <li><Link to='/movies'>MOVIES</Link></li>
-                    <li><Link to='/calendar'>CALENDAR</Link></li>
+        <DCNavbar sticky="top" bg="dark" expand="sm" variant="dark">
+            <DCNavbar.Brand href="/">DistrictX</DCNavbar.Brand>
+            <DCNavbar.Toggle aria-controls="basic-navbar-nav" />
+            <DCNavbar.Collapse >
+                <Nav className="mr-auto">
+                    <Nav.Link href='/movies'>MOVIES</Nav.Link>
+                    <Nav.Link href='/tv'>TV</Nav.Link>
+                    <Nav.Link href='/calendar'>CALENDAR</Nav.Link>
+                </Nav>
+                <Nav >
+                    {links}
+                </Nav>
+            </DCNavbar.Collapse>
 
-                </ul>
-                {links}
-            </div>
-        </nav>
+
+        </DCNavbar>
     )
 }
 
 const mapStateToProps = (state) => {
+    console.log(state);
     return {
         auth: state.firebase.auth
     }
