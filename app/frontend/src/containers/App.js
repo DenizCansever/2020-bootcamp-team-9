@@ -5,7 +5,7 @@ import SignUp from "../containers/SignUp";
 import MovieDetail from "../containers/MovieDetail";
 import Movies from "./Movies";
 
-import MovieContentPage from "../containers/MovieContent/index";
+import MovieContentPage from "../containers/MovieContent/MovieContent";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 

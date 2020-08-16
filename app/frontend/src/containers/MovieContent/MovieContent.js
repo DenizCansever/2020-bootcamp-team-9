@@ -1,6 +1,6 @@
 import React from "react";
-import SectionHero from "../../components/layout/SectionHero";
-import SectionMoreDetails from "../../components/layout/SectionMoreDetails";
+import SectionHero from "../../components/content_pages/SectionHero";
+import SectionMoreDetails from "../../components/content_pages/SectionMoreDetails";
 import moviedata from "../../data/moviedata.json";
 import { Row, Col } from "react-bootstrap";
 
