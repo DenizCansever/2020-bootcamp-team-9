@@ -1,4 +1,4 @@
-import { GET_MOVIES } from './constants';
+import { GET_MOVIES } from './constants';
 
 export function getMovies() {
     return {
