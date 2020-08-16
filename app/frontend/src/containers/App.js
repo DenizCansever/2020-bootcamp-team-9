@@ -1,7 +1,9 @@
-import React from "react";
-import Navbar from "../components/layout/Navbar";
-import SignIn from "../containers/SignIn";
-import SignUp from "../containers/SignUp";
+import React from 'react';
+import Navbar from '../components/layout/Navbar';
+import SignIn from '../containers/SignIn';
+import SignUp from '../containers/SignUp';
+import MovieDetail from '../containers/MovieDetail';
+import Movies from './Movies';
 
 import {
   BrowserRouter as Router,
@@ -16,6 +18,8 @@ function App() {
       <Switch>
         <Route path='/signin' component={SignIn} />
         <Route path='/signup' component={SignUp} />
+        <Route path='/movies' component={Movies} />
+        <Route path="/movie/:id" component={MovieDetail} />
       </Switch>
     </Router>
   );
