@@ -3,9 +3,10 @@ import Navbar from "../components/layout/Navbar";
 import SignIn from "../containers/SignIn";
 import SignUp from "../containers/SignUp";
 import MovieDetail from "../containers/MovieDetail";
+import About from "../containers/About";
 import Watched from "../components/layout/Watched";
 import AddMovie from "../components/layout/AddMovie";
-import About from "../components/layout/About";
+
 import Movies from "./Movies";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
