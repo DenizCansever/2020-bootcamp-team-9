@@ -4,6 +4,7 @@ import SignOutLink from "./SignOutLink"
 import { connect } from 'react-redux'
 import { Navbar as DCNavbar, Nav } from 'react-bootstrap';
 
+
 const Navbar = (props) => {
     const { auth } = props;
 
@@ -19,6 +20,7 @@ const Navbar = (props) => {
                     <Nav.Link href='/tv'>TV</Nav.Link>
                     <Nav.Link href='/watched'>Watched</Nav.Link>
                     <Nav.Link href='/addmovie'>Add</Nav.Link>
+                    <Nav.Link href='/about'>About</Nav.Link>
                 </Nav>
                 <Nav >
                     {links}

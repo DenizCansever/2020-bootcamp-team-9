@@ -5,6 +5,7 @@ import SignUp from "../containers/SignUp";
 import MovieDetail from "../containers/MovieDetail";
 import Watched from "../components/layout/Watched";
 import AddMovie from "../components/layout/AddMovie";
+import About from "../components/layout/About";
 import Movies from "./Movies";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -20,6 +21,7 @@ function App() {
         <Route path="/movie/:id" component={MovieDetail} />
         <Route path="/watched" component={Watched} />
         <Route path="/addmovie" component={AddMovie} />
+        <Route path="/about" component={About} />
       </Switch>
     </Router>
   );
