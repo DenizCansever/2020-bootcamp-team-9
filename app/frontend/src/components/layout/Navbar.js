@@ -17,7 +17,8 @@ const Navbar = (props) => {
                 <Nav className="mr-auto">
                     <Nav.Link href='/movies'>MOVIES</Nav.Link>
                     <Nav.Link href='/tv'>TV</Nav.Link>
-                    <Nav.Link href='/calendar'>CALENDAR</Nav.Link>
+                    <Nav.Link href='/watched'>Watched</Nav.Link>
+                    <Nav.Link href='/addmovie'>Add</Nav.Link>
                 </Nav>
                 <Nav >
                     {links}
