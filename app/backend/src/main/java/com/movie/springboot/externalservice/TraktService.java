@@ -19,7 +19,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.movie.springboot.models.Movie;
 import com.movie.springboot.models.MovieDetail;
-
+import com.movie.springboot.models.MovieId;
 import com.movie.springboot.models.MovieImages;
 import com.movie.springboot.models.MovieSearch;
 import com.movie.springboot.models.People;

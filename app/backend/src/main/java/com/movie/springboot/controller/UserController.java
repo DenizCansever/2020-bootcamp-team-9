@@ -29,7 +29,7 @@ public class UserController {
 		   return _userService.getWatched(userId);
 	   }
 	   
-	   
+	 
 	    @PostMapping("/user")
 	    public ResponseEntity<String> addUser(@RequestBody UserDto userDto) {
 	        
@@ -38,10 +38,11 @@ public class UserController {
 	    	return new ResponseEntity<>("User added",HttpStatus.OK);
 	    }
 	    
+		
 	    @PostMapping("/user/{userId}")
 	    public List<Movie> addMovie(@RequestBody Movie movie,
 	    		@PathVariable String userId) {
-	        
+	    	
 	    return	_userService.addWatched(movie, userId);
 	    
 	    }
