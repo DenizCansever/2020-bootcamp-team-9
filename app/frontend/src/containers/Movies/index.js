@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { fetchMovies, fetchGenre, fetchMovieByGenre } from "../../service/index";
+import {
+  fetchMovies,
+  fetchGenre,
+  fetchMovieByGenre,
+} from "../../service/index";
 
 import RBCarousel from "react-bootstrap-carousel";
 import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
 import StickyBox from "react-sticky-box";
 
-import Card from '../../components/layout/Card';
-import Footer from '../../components/layout/Footer';
-import Pagination from '../../components/layout/Pagination';
+import Card from "../../components/layout/Card";
+import Footer from "../../components/layout/Footer";
+import Pagination from "../../components/layout/Pagination";
+import { Search } from "../Search";
 
-import '../../theme/_cards.scss';
-import '../../theme/_sidebar.scss';
+import "../../theme/_cards.scss";
+import "../../theme/_sidebar.scss";
 
 function Movies() {
   const [items, setItems] = useState([]);
@@ -20,6 +25,7 @@ function Movies() {
   const [nowPlaying, setNowPlaying] = useState([]);
   const [genres, setGenres] = useState([]);
   const [movieByGenre, setMovieByGenre] = useState([]);
+  const [query, setQuery] = useState([]);
 
   useEffect(() => {
     const fetchAPI = async () => {
@@ -64,50 +70,56 @@ function Movies() {
   const prevPage = (currentPage) => setCurrentPage(currentPage - 1);
 
   return (
-      <>
-    <div className="container-fluid">
-      <div className="row">
-        <div className="col-md-9">
-          <RBCarousel
-            autoplay={true}
-            pauseOnVisibility={true}
-            slidesshowSpeed={5000}
-            version={4}
-            indicators={false}
-          >
-            {movies}
-          </RBCarousel>
+    <>
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-md-9" id="carousel">
+            <RBCarousel
+              autoplay={true}
+              pauseOnVisibility={true}
+              slidesshowSpeed={5000}
+              version={4}
+              indicators={false}
+            >
+              {movies}
+            </RBCarousel>
+          </div>
         </div>
+        <div className="row">
+          <div className="col-md-9" id="sidebar-wrapper">
+            <section className="cards">
+              {movieList.map((item, index) => (
+                <Card item={item}></Card>
+              ))}
+            </section>
+          </div>
+        </div>
+        <StickyBox>
+          <div className="sidenav">
+            <a href="#">Trending</a>
+            <a href="#">Popular</a>
+          </div>
+        </StickyBox>
       </div>
-
       <div className="row">
-        <div className="col-md-9" id="sidebar-wrapper">
-          <section className="cards">
-            {movieList.map((item, index) => (
-              <Card item={item}></Card>
-            ))}
-          </section>
-        </div>
+        <Pagination
+          itemsPerPage={itemsPerPage}
+          totalItems={movieByGenre.length}
+          paginate={paginate}
+          currentPage={currentPage}
+          nextPage={nextPage}
+          prevPage={prevPage}
+        />
       </div>
-
-      <Pagination
-        itemsPerPage={itemsPerPage}
-        totalItems={movieByGenre.length}
-        paginate={paginate}
-        currentPage={currentPage}
-        nextPage={nextPage}
-        prevPage={prevPage}
-      />
-
-      <StickyBox>
-        <div className="sidenav">
-          <a href="#">Trending</a>
-          <a href="#">Popular</a>
+      <Footer />
+      {/* <div className="add-content">
+        <div className="input-wrapper">
+          <input
+            type="text"
+            placeholder="Search for a movie"
+            value={query}/>
         </div>
-      </StickyBox>
-    </div>
-
-    <Footer/>
+      </div> */}
     </>
   );
 }

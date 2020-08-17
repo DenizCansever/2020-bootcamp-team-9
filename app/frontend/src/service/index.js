@@ -8,6 +8,7 @@ const movieUrl = `${url}/movie`;
 const genreUrl = `${url}/genre/movie/list`;
 const moviesUrl = `${url}/discover/movie`;
 const personUrl = `${url}/trending/person/week`;
+const searchMovieUrl = `${url}/search/movie`
 
 export const fetchMovies = async () => {
     try {
@@ -181,5 +182,19 @@ export const fetchSimilarMovie = async (id) => {
         }))
 
         return modifiedData;
+    } catch (error) { }
+}
+
+export const searchMovie = async (value) => {
+    try {
+        const { data } = await axios.get(`${searchMovieUrl}`, {
+            params: {
+                api_key: apiKey,
+                language: 'en_US',
+                page: 1,
+                query: value
+            }
+        });
+        return data['results'][0];
     } catch (error) { }
 }
