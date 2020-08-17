@@ -1,11 +1,11 @@
-* {
-    box-sizing: border-box;
+  #carousel {
+    margin-top: 20px;
   }
   
   .sidenav {
     width: 300px;
     height: 300px;
-    margin-top: 40px;
+    margin-top: 65px;
     position: fixed;
     z-index: 1;
     top: 10px;
@@ -32,12 +32,6 @@
     text-decoration: none; 
     color: blueviolet;
   }
-  
-  /* .main {
-    margin-left: 140px;  Same width as the sidebar + left position in px 
-    font-size: 28px;  Increased text to enable scrolling 
-    padding: 0px 10px;
-  } */
   
   @media only screen and (max-width: 700px) {
     .sidenav {
