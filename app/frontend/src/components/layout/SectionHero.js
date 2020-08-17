@@ -6,7 +6,10 @@ export class SectionHero extends Component {
     var { title, year, runTime, genres, overview } = this.props;
     return (
       <section className="section-hero">
-        <div className="container-hero">
+        <div
+          className="container-hero"
+          style={{ backgroundImage: `url(${require("./bayern.jpg")})` }}
+        >
           <div className="image-hero">
             <div className="content-info">
               <h1>{title}</h1>
