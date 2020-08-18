@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 import { fetchMovieDetail, fetchCasts } from "../../service";
-import moviedata from "../../data/moviedata.json";
 import SectionHero from "../../components/layout/SectionHero";
-import SectionMoreDetails from "../../components/layout/SectionMoreDetails";
+//import SectionMoreDetails from "../../components/layout/SectionMoreDetails";
 
 import { Row, Col } from "react-bootstrap";
 import { Modal } from "react-bootstrap";
@@ -29,7 +28,7 @@ function MovieDetail({ match }) {
 
   genres = detail.genres;
   cast = detail.people;
-  console.log(cast)
+  console.log(cast);
 
   //  const castList = cast.slice(0, 4).map((c, i) => {
   //    return (
@@ -41,18 +40,17 @@ function MovieDetail({ match }) {
 
   // Get genres
   let genresList;
-   if (genres) {
-     genresList = genres.map((genre, i) => {
-       return (
-         <li className="list-inline-item" key={i}>
-           {genre}
-         </li>
-       );
-     });
-   }
+  if (genres) {
+    genresList = genres.map((genre, i) => {
+      return (
+        <li className="list-inline-item" key={i}>
+          {genre}
+        </li>
+      );
+    });
+  }
 
-   // Get casts
-
+  // Get casts
 
   return (
     <Row>
@@ -61,18 +59,22 @@ function MovieDetail({ match }) {
           title={detail.title}
           year={detail.year}
           genres={genresList}
+          tagline={detail.tagline}
           overview={detail.overview}
           backgroundImage={detail.movieClearArtImage}
+          rating={detail.rating}
+          votes={detail.votes}
+          cast={"cast"}
         />
-        <SectionMoreDetails
+        {/* <SectionMoreDetails
           genres={genresList}
           overview={detail.overview}
           tagline={detail.tagline}
           released={detail.released}
           rating={detail.rating}
           votes={detail.votes}
-          cast = {"cast"}
-        />
+          cast={"cast"}
+        /> */}
       </Col>
       {/* {castList} */}
     </Row>
