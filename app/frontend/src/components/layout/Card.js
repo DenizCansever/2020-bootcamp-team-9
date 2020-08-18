@@ -7,7 +7,7 @@ const Card = ({ index, item }) => {
     <div className="card" id="movie_card">
       <div className="card-inner">
         <div className="card-front">
-          <img className="img-fluid" src={item.poster} alt={item.title}></img>
+          <img className="img-fluid" src={item.moviePosterImage} alt={item.title}></img>
         </div>
         <div className="card-back">
           <Link to={`/movie/${item.id}`}>
@@ -15,7 +15,7 @@ const Card = ({ index, item }) => {
           </Link>
           <ul>
             <li>
-              <strong>Actor Name:</strong> {item.title}
+              <strong>Title:</strong> {item.title}
             </li>
           </ul>
         </div>
