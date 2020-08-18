@@ -1,6 +1,5 @@
 package com.movie.springboot.externalservice;
 
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -22,6 +21,7 @@ import com.movie.springboot.models.MovieDetail;
 import com.movie.springboot.models.MovieId;
 import com.movie.springboot.models.MovieImages;
 import com.movie.springboot.models.MovieSearch;
+import com.movie.springboot.models.MovieTrending;
 import com.movie.springboot.models.People;
 
 @Service
@@ -36,7 +36,7 @@ public class TraktService {
 		this.restTemplate = restTemplateBuilder.build();
 	}
 
-	@Cacheable(cacheNames = "movie", key = "#query")
+	@Cacheable(cacheNames = "moviepopular", key = "#query")
 	public List<Movie> getTraktPopularMovies(String query) {
 
 		String url = "https://api.trakt.tv/movies/popular" + query;
@@ -66,6 +66,58 @@ public class TraktService {
 						item.setMoviePosterImage(images.getMovieposter()[0].getUrl());
 					}
 
+				}
+
+				return movieList;
+
+			} else {
+				return movieList;
+			}
+		} catch (Exception ex) {
+
+			return movieList;
+		}
+
+	}
+
+	@Cacheable(cacheNames = "movietrending", key = "#query")
+	public List<Movie> getTraktTrendingMovies(String query) {
+
+		String url = "https://api.trakt.tv/movies/trending" + query;
+
+		HttpEntity<?> request = getHttpEntity();
+
+		List<Movie> movieList = new ArrayList<Movie>();
+
+		try {
+
+			ResponseEntity<MovieTrending[]> response = this.restTemplate.exchange(url, HttpMethod.GET, request,
+					MovieTrending[].class, 1);
+
+			if (response.getStatusCode() == HttpStatus.OK) {
+
+				for (MovieTrending item : response.getBody()) {
+
+					Movie movie = new Movie();
+
+					movie.setIds(item.getMovie().getIds());
+
+					movie.setWatchers(item.getWatchers());
+					movie.setTitle(item.getMovie().getTitle());
+					movie.setYear(item.getMovie().getYear());
+
+					MovieImages images = _fanartService.getImages(item.getMovie().getIds().getTmdb());
+
+					if (images.getHdmovieclearart() != null) {
+
+						movie.setMovieClearArtImage(images.getHdmovieclearart()[0].getUrl());
+					}
+					if (images.getMovieposter() != null) {
+
+						movie.setMoviePosterImage(images.getMovieposter()[0].getUrl());
+					}
+
+					movieList.add(movie);
 				}
 
 				return movieList;

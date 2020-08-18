@@ -4,6 +4,16 @@ public class Movie extends MovieBase {
 
 	private String movieClearArtImage;
 	private String moviePosterImage;
+	private int watchers;
+	 
+
+	public int getWatchers() {
+		return watchers;
+	}
+
+	public void setWatchers(int watchers) {
+		this.watchers = watchers;
+	}
 
 	public String getMovieClearArtImage() {
 		return movieClearArtImage;

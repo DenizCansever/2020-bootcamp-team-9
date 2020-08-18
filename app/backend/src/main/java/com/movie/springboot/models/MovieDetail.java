@@ -12,12 +12,23 @@ public class MovieDetail implements Serializable {
    private String overview; 
    private String released;
    private Double rating;
+   private int runtime;
    private Long votes;
    private ArrayList<String> genres;
    private 	String movieClearArtImage;
    private 	String moviePosterImage;
    private PeopleList[] people;
    
+
+
+
+public int getRuntime() {
+	return runtime;
+}
+
+public void setRuntime(int runtime) {
+	this.runtime = runtime;
+}
 
 public PeopleList[] getPeople() {
 	return people;

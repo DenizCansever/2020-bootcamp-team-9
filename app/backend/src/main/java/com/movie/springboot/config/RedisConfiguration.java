@@ -2,7 +2,6 @@ package com.movie.springboot.config;
 
 import java.time.Duration;
 
-import javax.sound.sampled.Port;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.EnableCaching;
@@ -30,17 +29,13 @@ public class RedisConfiguration {
 	private String password;
 	@Bean
 	JedisConnectionFactory jedisConnectionFactory() {
-//		JedisConnectionFactory factory = new JedisConnectionFactory();
+
 		RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration(host, port);
 	    redisStandaloneConfiguration.setPassword(RedisPassword.of(password));
 	    return new JedisConnectionFactory(redisStandaloneConfiguration);
 
-//		factory.setHostName(host);
-//		factory.setPort(port);
-//		factory.setPassword(password);
-//
-//		return factory;
 	}
+	    
 
 	@Bean
 	public RedisCacheManager cacheManager() {
