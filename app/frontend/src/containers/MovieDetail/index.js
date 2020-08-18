@@ -1,96 +1,81 @@
 import React, { useState, useEffect } from "react";
+
+import { fetchMovieDetail, fetchCasts } from "../../service";
+import moviedata from "../../data/moviedata.json";
 import SectionHero from "../../components/layout/SectionHero";
 import SectionMoreDetails from "../../components/layout/SectionMoreDetails";
-import moviedata from "../../data/moviedata.json";
+
 import { Row, Col } from "react-bootstrap";
-import {
-  fetchMovieDetail,
-  fetchMovieVideos,
-  fetchCasts,
-  fetchSimilarMovie,
-} from "../../service";
-import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
 import { Modal } from "react-bootstrap";
-import ReactPlayer from "react-player";
-import ReactStars from "react-rating-stars-component";
 import { Link } from "react-router-dom";
+import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
 
 function MovieDetail({ match }) {
   let params = match.params;
   let genres = [];
-  const [isOpen, setIsOpen] = useState(false);
-  const [detail, setDetail] = useState([]);
-  const [video, setVideo] = useState([]);
+  let cast = [];
   const [casts, setCasts] = useState([]);
-  const [similarMovie, setSimilarMovie] = useState([]);
+  const [detail, setMovieDetail] = useState([]);
 
   useEffect(() => {
     const fetchAPI = async () => {
-      setDetail(await fetchMovieDetail(params.id));
       setCasts(await fetchCasts(params.id));
+      setMovieDetail(await fetchMovieDetail(params.id));
     };
     fetchAPI();
   }, [params.id]);
 
+  console.log("moviiee", detail);
+
   genres = detail.genres;
+  cast = detail.people;
+  console.log(cast)
 
-  const castList = casts.slice(0, 4).map((c, i) => {
-    return (
-      <div className="col-md-3 text-center" key={i}>
-        <img
-          className="img-fluid rounded-circle mx-auto d-block"
-          src={c.img}
-          alt={c.name}
-        ></img>
-        <p className="font-weight-bold text-center">{c.name}</p>
-        <p
-          className="font-weight-light text-center"
-          style={{ color: "#5a606b" }}
-        >
-          {c.character}
-        </p>
-      </div>
-    );
-  });
+  //  const castList = cast.slice(0, 4).map((c, i) => {
+  //    return (
+  //      <div className="col-md-3 text-center" key={i}>
+  //        <div>{c.character}</div>
+  //      </div>
+  //    );
+  //  });
 
+  // Get genres
   let genresList;
-  if (genres) {
-    genresList = genres.map((g, i) => {
-      return (
-        <li className="list-inline-item" key={i}>
-          <button type="button" className="btn btn-outline-info">
-            {g.name}
-          </button>
-        </li>
-      );
-    });
-  }
+   if (genres) {
+     genresList = genres.map((genre, i) => {
+       return (
+         <li className="list-inline-item" key={i}>
+           {genre}
+         </li>
+       );
+     });
+   }
+
+   // Get casts
+
 
   return (
-
-        <Row>
-          <Col className="movie-content">
-            <SectionHero
-              title={detail.original_title}
-              year={detail.release_date}
-              runTime={detail.runtime}
-              genres={genresList}
-              overview={detail.overview}
-            />
-            <SectionMoreDetails
-              genres={genresList}
-              overview={detail.overview}
-              director={"director"}
-              tagline={"tagline"}
-              released={detail.release_date}
-              rating={detail.vote_average}
-              released={detail.release_date}
-              country={"country"}
-              votes={detail.vote_count}
-            />
-          </Col>
-        </Row>
-
+    <Row>
+      <Col className="movie-content">
+        <SectionHero
+          title={detail.title}
+          year={detail.year}
+          genres={genresList}
+          overview={detail.overview}
+          backgroundImage={detail.movieClearArtImage}
+        />
+        <SectionMoreDetails
+          genres={genresList}
+          overview={detail.overview}
+          tagline={detail.tagline}
+          released={detail.released}
+          rating={detail.rating}
+          votes={detail.votes}
+          cast = {"cast"}
+        />
+      </Col>
+      {/* {castList} */}
+    </Row>
   );
 }
 

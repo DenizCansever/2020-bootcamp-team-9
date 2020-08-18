@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from "react";
-import {
-  fetchMovies,
-  fetchGenre,
-  fetchMovieByGenre,
-} from "../../service/index";
+import { fetchPopularMovies } from "../../service/index";
 
-import RBCarousel from "react-bootstrap-carousel";
-import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
 import StickyBox from "react-sticky-box";
+import RBCarousel from "react-bootstrap-carousel";
 
 import Card from "../../components/layout/Card";
 import Footer from "../../components/layout/Footer";
@@ -16,32 +11,36 @@ import { Search } from "../Search";
 
 import "../../theme/_cards.scss";
 import "../../theme/_sidebar.scss";
+import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
 
 function Movies() {
-  const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(15);
-  const [nowPlaying, setNowPlaying] = useState([]);
-  const [genres, setGenres] = useState([]);
   const [movieByGenre, setMovieByGenre] = useState([]);
   const [query, setQuery] = useState([]);
 
+  // Sonradan Eklenenler
+  const [popularMovies, setPopularMovies] = useState([]);
+
   useEffect(() => {
     const fetchAPI = async () => {
-      setNowPlaying(await fetchMovies());
-      setGenres(await fetchGenre());
-      setMovieByGenre(await fetchMovieByGenre(28));
+      //Sonradan Eklenenler
+      setPopularMovies(await fetchPopularMovies());
     };
 
     fetchAPI();
   }, []);
 
-  const movies = nowPlaying.slice(0, 5).map((item, index) => {
+  const sliderPopularMovies = popularMovies.slice(0, 5).map((item, index) => {
     return (
       <div style={{ height: 500, width: "100%" }} key={index}>
         <div className="carousel-center">
-          <img style={{ height: 600 }} src={item.backPoster} alt={item.title} />
+          <img
+            style={{ height: 500 }}
+            src={item.movieClearArtImage}
+            alt={item.title}
+          />
         </div>
         <div className="carousel-center">
           <i
@@ -49,12 +48,13 @@ function Movies() {
             style={{ fontSize: 95, color: "#f4c10f" }}
           ></i>
         </div>
-        <div
+        {/* Slider'a yazı ekleyip kaldırabilirsin */}
+        {/* <div
           className="carousel-caption"
           style={{ textAlign: "center", fontSize: 35 }}
         >
           {item.title}
-        </div>
+        </div> */}
       </div>
     );
   });
@@ -62,7 +62,7 @@ function Movies() {
   // Get current posts
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const movieList = movieByGenre.slice(indexOfFirstItem, indexOfLastItem);
+  const movieList = popularMovies.slice(indexOfFirstItem, indexOfLastItem);
 
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -81,14 +81,14 @@ function Movies() {
               version={4}
               indicators={false}
             >
-              {movies}
+              {sliderPopularMovies}
             </RBCarousel>
           </div>
         </div>
         <div className="row">
           <div className="col-md-9" id="sidebar-wrapper">
             <section className="cards">
-              {movieList.map((item, index) => (
+              {popularMovies.slice(0, 20).map((item, index) => (
                 <Card item={item}></Card>
               ))}
             </section>
@@ -104,7 +104,7 @@ function Movies() {
       <div className="row">
         <Pagination
           itemsPerPage={itemsPerPage}
-          totalItems={movieByGenre.length}
+          totalItems={popularMovies.length}
           paginate={paginate}
           currentPage={currentPage}
           nextPage={nextPage}
