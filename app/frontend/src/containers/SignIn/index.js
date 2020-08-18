@@ -10,11 +10,10 @@ function SignIn(props) {
     const history = useHistory();
     const [userEmail, setUserEmail] = useState('');
     const [userPassword, setUserPassword] = useState('');
-
+    
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(signIn({ userEmail, userPassword }));
-        history.push("/")
+        dispatch(signIn({ userEmail, userPassword }, history));
     }
 
 
@@ -32,7 +31,7 @@ function SignIn(props) {
                             <Form.Control
                                 type="email"
                                 value={userEmail}
-                                placeholder="Enter email e.g abc@mail.com"
+                                placeholder="Enter Email"
                                 onChange={e => setUserEmail(e.target.value)}
                             />
                             <Form.Text className="text-muted">
@@ -51,7 +50,7 @@ function SignIn(props) {
                         </Form.Group>
 
                         <Button type="submit" className="float-right">
-                            SING IN
+                            SIGN IN
                  </Button>
                     </Form>
 

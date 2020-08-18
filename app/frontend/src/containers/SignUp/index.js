@@ -16,9 +16,7 @@ function SignUp(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        //this.props.signUp(this.state)
-        dispatch(signUp({ userEmail, userPassword, userFirstName, userLastName, userAge }));
-        history.push("/")
+        dispatch(signUp({ userEmail, userPassword, userFirstName, userLastName, userAge }, history));
 
     }
 

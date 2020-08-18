@@ -1,6 +1,3 @@
-// import produce, { enableES5 } from 'immer';
-
-// enableES5(); // For EcmaScript support
 
 const initialState = {
     authError: null

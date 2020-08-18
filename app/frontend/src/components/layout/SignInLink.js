@@ -5,10 +5,10 @@ import { signOut } from '../../redux/authActions'
 
 const SignInLink = (props) => {
     return (
-        <Nav>
+        <>
             <Nav.Link href='/profile'>PROFILE</Nav.Link>
             <button className='btn btn-outline-danger' onClick={props.signOut}>LOG OUT</button>
-        </Nav>
+        </>
     )
 }
 

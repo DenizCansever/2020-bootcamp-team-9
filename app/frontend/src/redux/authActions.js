@@ -1,13 +1,20 @@
-export const signIn = (credentials) => {
+import { useHistory } from "react-router-dom";
+
+export const signIn = (credentials, x) => {
     return (dispatch, getState, { getFirebase }) => {
         const firebase = getFirebase();
+        
+        
 
         firebase.auth().signInWithEmailAndPassword(
             credentials.userEmail,
             credentials.userPassword
 
-        ).then(() => {
+        ).then((response) => {
+            console.log(response)
+            x.push('/profile');
             dispatch({ type: 'LOGIN_SUCCESS' });
+            
         }).catch((err) => {
             dispatch({ type: 'LOGIN_ERROR', err });
         });
@@ -20,14 +27,18 @@ export const signOut = () => {
 
         firebase.auth().signOut().then(() => {
             dispatch({ type: 'SIGNOUT_SUCCESS' })
+            
         });
     }
 }
 
-export const signUp = (newUser) => {
+export const signUp = (newUser, x) => {
+    
     return (dispatch, getState, { getFirebase, getFirestore }) => {
         const firebase = getFirebase();
         const firestore = getFirestore();
+        
+        
 
         firebase.auth().createUserWithEmailAndPassword(
             newUser.userEmail,
@@ -42,7 +53,10 @@ export const signUp = (newUser) => {
                 initials: newUser.userFirstName[0].toUpperCase() + newUser.userLastName[0].toUpperCase()
             })
         }).then(() => {
+            x.push('/profile');
             dispatch({ type: 'SIGNUP_SUCCESS' })
+            
+            
         }).catch(err => {
             dispatch({ type: 'SIGNUP_ERROR', err })
             console.log(err);
