@@ -1,0 +1,52 @@
+// *,
+// *:before,
+// *:after {
+//   // box-sizing: inherit;
+// }
+
+.team-column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.team-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+  text-align: center;
+  background-color: white;
+  color: rgb(30, 31, 38);
+  filter: brightness(90%);
+}
+
+.section-about {
+  padding: 50px;
+  text-align: left;
+  background-size: cover;
+  //width: 50%;
+  //background-color: #474e5d;
+  color: white;
+}
+
+.team-container {
+  padding: 0 16px;
+}
+
+.team-container::after,
+.team-row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.team-title {
+  color: grey;
+}
+
+@media screen and (max-width: 650px) {
+  .team-column {
+    width: 100%;
+    display: block;
+  }
+}
