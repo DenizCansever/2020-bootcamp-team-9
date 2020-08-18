@@ -8,6 +8,7 @@ import Watched from "../components/layout/Watched";
 import AddMovie from "../components/layout/AddMovie";
 
 import Movies from "./Movies";
+import Main from "../containers/Home";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -16,6 +17,7 @@ function App() {
     <Router>
       <Navbar />
       <Switch>
+        <Route exact path="/" component={Main} />
         <Route path="/signin" component={SignIn} />
         <Route path="/signup" component={SignUp} />
         <Route path="/movies" component={Movies} />
