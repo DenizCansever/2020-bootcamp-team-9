@@ -3,23 +3,78 @@
     display: flex;
     flex-direction: column;
     max-width: 24em;
-    min-width: 21em;
-    box-shadow: 0px 0px 20px 0px rgba(15, 15, 15, 0.2);
+    min-width: 20em;
+    box-shadow: 0px 0px 20px 0px rgba(255,255,255,0.1);
     border-radius: 6px;
     padding: 24px;
-    background: rgba(0,0,0,0.1);
+    background: rgba(255,255,255,0.1);
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
-    
-
-
     
 }
 
-.signin-container{
-    background-color: red;
+.initial-top {
+    width: 100vw;
+    height: 85vh;
+    position: relative;
+    background: radial-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), 
+        url(../images/mainpage_initial.jpg) no-repeat center center/cover;
+        
+    .initial-content{
+        width: 65%;
+        position: relative;
+        margin: 10rem auto 0;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        text-align: center;
+        flex-direction: column;
+            
+            h1{
+                position: relative;
+                margin: 0 0 1.2rem;
+                font-size: 5rem;
+                font-weight: 700;
+                line-height: 1.1em;
+                text-shadow: 2px 2px 10px #069C9E;
+            }
+            h2{
+                position: relative;
+                margin: 0 0 1.875rem;
+                text-shadow: 2px 2px 9px #069C9E;
+            }
+            .initial-btn {
+                position: relative;
+                display: inline-block;
+                background: red;
+                color: white;
+                border: none;
+                outline: none;
+                margin: 0 33%;
+                padding: 1.2rem;
+                border-radius: 12px;
+                font-size: 2rem;
+                text-align: center;
+                box-shadow: 0 8px 16px 0 rgba(255,255,255,0.3), 0 6px 20px 0 rgba(255,255,255,0.3);
+                cursor: pointer;
+                &:hover {
+                    color: white;
+                    text-decoration: none;
+                    
+                }
+               
+            }
+        }
 }
+
+
+
+
+
+
+
+  
+
 
