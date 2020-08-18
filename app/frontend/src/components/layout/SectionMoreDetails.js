@@ -25,11 +25,11 @@ export class SectionMoreDetails extends Component {
                 <td>{overview}</td>
               </tr>
               <tr>
-                <th>Tagline</th>
+                <th>Cast</th>
                 <th>Votes</th>
               </tr>
               <tr>
-                <td>{tagline}</td>
+                <td>{cast}</td>
                 <td>{votes}</td>
               </tr>
               <tr>
@@ -39,12 +39,6 @@ export class SectionMoreDetails extends Component {
               <tr>
                 <td>{released}</td>
                 <td>{rating}</td>
-              </tr>
-              <tr>
-                <td>Cast</td>
-              </tr>
-              <tr>
-                <td>{cast}</td>
               </tr>
             </tbody>
           </table>

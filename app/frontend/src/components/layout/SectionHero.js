@@ -26,15 +26,15 @@ export class SectionHero extends Component {
           <div className="image-hero">
             <div className="content-info">
               <h1 style={{ fontSize: "30px", color: "#FFF" }}>{title}</h1>
-              <span style={{ fontSize: "15px", color: "#a3a3a3" }}>
+              <span style={{ fontSize: "14px", color: "#a3a3a3" }}>
                 {year + "  |  "}
               </span>
-              <span style={{ fontSize: "15px", color: "#a3a3a3" }}>
+              <span style={{ fontSize: "14px", color: "#a3a3a3" }}>
                 {runtime + " minute" + "  |  "}
               </span>
               <span
                 style={{
-                  fontSize: "15px",
+                  fontSize: "14px",
                   color: "#a3a3a3",
                   textTransform: "capitalize",
                 }}
@@ -55,21 +55,21 @@ export class SectionHero extends Component {
               <p> </p>
               <p
                 style={{
-                  fontSize: "16px",
+                  fontSize: "15px",
                   color: "#FFF",
                 }}
               >
                 {overview}
               </p>
               <div>
-                <span style={{ fontSize: "17px", color: "#a3a3a3" }}>
+                <span style={{ fontSize: "15px", color: "#a3a3a3" }}>
                   Starring:
                 </span>
                 <span
                   style={{
-                    fontSize: "16px",
+                    fontSize: "15px",
                     color: "#FFF",
-                    textTransform: "capitalize",
+                    // textTransform: "capitalize",
                   }}
                 >
                   {cast}
@@ -77,12 +77,12 @@ export class SectionHero extends Component {
               </div>
               <p></p>
               <div>
-                <span style={{ fontSize: "17px", color: "#a3a3a3" }}>
+                <span style={{ fontSize: "15px", color: "#a3a3a3" }}>
                   Rating:
                 </span>
                 <span
                   style={{
-                    fontSize: "16px",
+                    fontSize: "15px",
                     color: "#FFF",
                   }}
                 >
@@ -90,7 +90,7 @@ export class SectionHero extends Component {
                 </span>
                 <span
                   style={{
-                    fontSize: "17px",
+                    fontSize: "15px",
                     color: "#a3a3a3",
                     paddingLeft: "15px",
                   }}
@@ -99,7 +99,7 @@ export class SectionHero extends Component {
                 </span>
                 <span
                   style={{
-                    fontSize: "16px",
+                    fontSize: "15px",
                     color: "#FFF",
                   }}
                 >
