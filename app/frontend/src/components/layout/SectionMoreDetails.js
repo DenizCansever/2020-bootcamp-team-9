@@ -9,7 +9,7 @@ export class SectionMoreDetails extends Component {
       released,
       rating,
       votes,
-      cast
+      cast,
     } = this.props;
     return (
       <section className="section-moredetails">

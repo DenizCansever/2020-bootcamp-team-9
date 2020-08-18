@@ -6,7 +6,7 @@ export class SectionHero extends Component {
     var {
       title,
       year,
-      runTime,
+      runtime,
       genres,
       overview,
       backgroundImage,
@@ -30,7 +30,7 @@ export class SectionHero extends Component {
                 {year + "  |  "}
               </span>
               <span style={{ fontSize: "15px", color: "#a3a3a3" }}>
-                {runTime + "  |  "}
+                {runtime + " minute" + "  |  "}
               </span>
               <span
                 style={{
@@ -72,7 +72,7 @@ export class SectionHero extends Component {
                     textTransform: "capitalize",
                   }}
                 >
-                  {"  " + cast}
+                  {cast}
                 </span>
               </div>
               <p></p>

@@ -12,9 +12,13 @@ import { Search } from "../Search";
 import "../../theme/_cards.scss";
 import "../../theme/_sidebar.scss";
 import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
+import { Link } from "react-router-dom";
+import Spinner from "../../components/layout/Spinner";
+import Loader from 'react-loader-spinner'
 
-function Movies() {
-  const [loading, setLoading] = useState(false);
+
+const Movies = (e) => {
+  const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(15);
   const [movieByGenre, setMovieByGenre] = useState([]);
@@ -26,7 +30,9 @@ function Movies() {
   useEffect(() => {
     const fetchAPI = async () => {
       //Sonradan Eklenenler
+      setIsLoading(true);
       setPopularMovies(await fetchPopularMovies());
+      setIsLoading(false);
     };
 
     fetchAPI();
@@ -69,7 +75,15 @@ function Movies() {
   const nextPage = (currentPage) => setCurrentPage(currentPage + 1);
   const prevPage = (currentPage) => setCurrentPage(currentPage - 1);
 
-  return (
+  return isLoading ? (
+    <Loader
+    type="Puff"
+    color="#00BFFF"
+    height={100}
+    width={100}
+    timeout={3000} //3 secs
+ />
+  ) : (
     <>
       <div className="container-fluid">
         <div className="row">
@@ -96,8 +110,8 @@ function Movies() {
         </div>
         <StickyBox>
           <div className="sidenav">
-            <a href="#">Trending</a>
-            <a href="#">Popular</a>
+            <Link to="/movies/trending">Trending</Link>
+            <Link to="/movies/popular">Popular</Link>
           </div>
         </StickyBox>
       </div>
@@ -112,16 +126,8 @@ function Movies() {
         />
       </div>
       <Footer />
-      {/* <div className="add-content">
-        <div className="input-wrapper">
-          <input
-            type="text"
-            placeholder="Search for a movie"
-            value={query}/>
-        </div>
-      </div> */}
     </>
   );
-}
+};
 
 export default Movies;

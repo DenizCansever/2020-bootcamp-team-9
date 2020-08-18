@@ -24,11 +24,11 @@ function MovieDetail({ match }) {
     fetchAPI();
   }, [params.id]);
 
-  console.log("moviiee", detail);
 
   genres = detail.genres;
   cast = detail.people;
-  console.log(cast);
+  console.log("genres", genres);
+  console.log("cast", cast);
 
   //  const castList = cast.slice(0, 4).map((c, i) => {
   //    return (
@@ -51,6 +51,16 @@ function MovieDetail({ match }) {
   }
 
   // Get casts
+  let castList;
+  if (cast) {
+    castList = cast.slice(0, 5).map((c, i) => {
+      return (
+        <li className="list-inline-item" key={i}>
+          {c.character + " as " + c.person.name}
+        </li>
+      );
+    });
+  }
 
   return (
     <Row>
@@ -58,13 +68,14 @@ function MovieDetail({ match }) {
         <SectionHero
           title={detail.title}
           year={detail.year}
+          runtime={detail.runtime}
           genres={genresList}
           tagline={detail.tagline}
           overview={detail.overview}
           backgroundImage={detail.movieClearArtImage}
           rating={detail.rating}
           votes={detail.votes}
-          cast={"cast"}
+          cast={castList}
         />
         {/* <SectionMoreDetails
           genres={genresList}
@@ -76,7 +87,6 @@ function MovieDetail({ match }) {
           cast={"cast"}
         /> */}
       </Col>
-      {/* {castList} */}
     </Row>
   );
 }
