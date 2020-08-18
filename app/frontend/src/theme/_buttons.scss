@@ -1,12 +1,11 @@
 .btn {
   &-addlist {
-    background-color: #7c9fdb;
-    color: #1e1f26;
-    font-weight: bold;
-    border-style: rounded;
-    border-width: medium;
-    border: solid #d0e1f9;
-    border-radius: 20px;
+    background-color: transparent;
+    color: rgb(23, 162, 184);
+    border-color: rgb(23, 162, 184);
+    border-radius: 0.25rem;
+    font-weight: 400;
+    border: 1px solid;
   }
 }
 

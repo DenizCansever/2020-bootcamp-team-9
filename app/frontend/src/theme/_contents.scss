@@ -1,9 +1,10 @@
 .content {
   &-info {
-    width: 50%;
+    width: 35%;
     position: absolute;
     left: 20px;
-    bottom: 50px;
+    //bottom: 20px;
+    top: 50px;
     padding-left: 10px;
     color: white;
   }
