@@ -5,12 +5,11 @@ export class SectionMoreDetails extends Component {
     var {
       genres,
       overview,
-      director,
       tagline,
       released,
       rating,
-      country,
       votes,
+      cast
     } = this.props;
     return (
       <section className="section-moredetails">
@@ -26,12 +25,12 @@ export class SectionMoreDetails extends Component {
                 <td>{overview}</td>
               </tr>
               <tr>
-                <th>Director</th>
                 <th>Tagline</th>
+                <th>Votes</th>
               </tr>
               <tr>
-                <td>{director}</td>
                 <td>{tagline}</td>
+                <td>{votes}</td>
               </tr>
               <tr>
                 <th>Released</th>
@@ -42,12 +41,10 @@ export class SectionMoreDetails extends Component {
                 <td>{rating}</td>
               </tr>
               <tr>
-                <th>Country</th>
-                <th>Votes</th>
+                <td>Cast</td>
               </tr>
               <tr>
-                <td>{country}</td>
-                <td>{votes}</td>
+                <td>{cast}</td>
               </tr>
             </tbody>
           </table>
