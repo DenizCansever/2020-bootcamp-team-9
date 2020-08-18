@@ -24,7 +24,6 @@ function MovieDetail({ match }) {
     fetchAPI();
   }, [params.id]);
 
-
   genres = detail.genres;
   cast = detail.people;
   console.log("genres", genres);
@@ -56,7 +55,9 @@ function MovieDetail({ match }) {
     castList = cast.slice(0, 5).map((c, i) => {
       return (
         <li className="list-inline-item" key={i}>
-          {c.character + " as " + c.person.name}
+          {/* {c.person.name + " as " + c.character} */}
+          {/* {c.person.name + " (" + c.character + ")" + ","} */}
+          {c.person.name + ","}
         </li>
       );
     });
@@ -84,7 +85,7 @@ function MovieDetail({ match }) {
           released={detail.released}
           rating={detail.rating}
           votes={detail.votes}
-          cast={"cast"}
+          cast={castList}
         /> */}
       </Col>
     </Row>
