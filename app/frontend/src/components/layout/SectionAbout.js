@@ -19,7 +19,7 @@ export class SectionAbout extends Component {
               textShadow: "2px 3px 10px red",
               fontFamily: "Arial Black, Gadget, sans-serif",
               fontSize: "43px",
-              margin: "0",
+              margin: "0px",
             }}
           >
             Let's talk about DistrictX
