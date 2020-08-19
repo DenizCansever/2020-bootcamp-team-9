@@ -1,4 +1,5 @@
 import { useHistory } from "react-router-dom";
+import {addUser} from '../service/index'
 
 export const signIn = (credentials, x) => {
     return (dispatch, getState, { getFirebase }) => {
@@ -11,7 +12,7 @@ export const signIn = (credentials, x) => {
             credentials.userPassword
 
         ).then((response) => {
-            console.log(response)
+            console.log("login",response)
             x.push('/profile');
             dispatch({ type: 'LOGIN_SUCCESS' });
             
@@ -45,6 +46,9 @@ export const signUp = (newUser, x) => {
             newUser.userPassword
         ).then((resp) => {
 
+            addUser(resp.user.uid,resp.user.email)
+            localStorage.setItem('userId', resp.user.uid);
+
 
             return firestore.collection('users').doc(resp.user.uid).set({
                 userFirstName: newUser.userFirstName,
@@ -52,9 +56,11 @@ export const signUp = (newUser, x) => {
                 userAge: newUser.userAge,
                 initials: newUser.userFirstName[0].toUpperCase() + newUser.userLastName[0].toUpperCase()
             })
-        }).then(() => {
+        }).then((response) => {
+            
             x.push('/profile');
             dispatch({ type: 'SIGNUP_SUCCESS' })
+          
             
             
         }).catch(err => {
