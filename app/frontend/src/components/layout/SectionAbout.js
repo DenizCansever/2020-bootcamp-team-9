@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import b3 from "../../images/b3.jpg";
-import yenib6 from "../../images/yenib6.png";
+import aboutpage_about from "../../images/aboutpage_about.png";
 
 export class SectionAbout extends Component {
   render() {
@@ -11,13 +10,13 @@ export class SectionAbout extends Component {
           backgroundPosition: "right center",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
-          backgroundImage: `url(${yenib6})`,
+          backgroundImage: `url(${aboutpage_about})`,
         }}
       >
         <div className="content-about">
           <h1
             style={{
-              textShadow: "2px 3px 10px #069c9e",
+              textShadow: "2px 3px 10px red",
               fontFamily: "Arial Black, Gadget, sans-serif",
               fontSize: "43px",
               margin: "0",
@@ -54,7 +53,8 @@ export class SectionAbout extends Component {
               fontSize: "18px",
               fontFamily: "Georgia,times new roman,Times,serif",
               fontStyle: "italic",
-              color: "#069c9e",
+              // color: "#069c9e",
+              color: "red",
             }}
           >
             DistrictX is free to use!
