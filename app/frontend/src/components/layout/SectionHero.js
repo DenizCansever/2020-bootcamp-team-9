@@ -15,6 +15,8 @@ const SectionHero = ({
   votes,
 }) => {
   const { addMovieToWatchlist } = useContext(GlobalContext);
+  //let image=backgroundImage == null? "https://cdn1.thr.com/sites/default/files/imagecache/landscape_928x523/2012/11/movie_theater_interior_a_l.jpg" : backgroundImage;
+  
 
   return (
     <section className="section-hero">

@@ -7,7 +7,7 @@ const Card = ({ item, index }) => {
     <div className="card" id="movie_card">
       <div className="card-inner">
         <div className="card-front">
-          <img className="img-fluid" src={item.moviePosterImage} alt={item.title}></img>
+          <img className="img-fluid" src={item.moviePosterImage=="" ? "https://cdn1.thr.com/sites/default/files/imagecache/landscape_928x523/2012/11/movie_theater_interior_a_l.jpg" :item.moviePosterImage} alt={item.title}></img>
         </div>
         <div className="card-back">
           <Link to={`/movie/${item.ids.trakt}`}>

@@ -25,7 +25,7 @@ const Pagination = ({
         <Nav.Item as="li">
           <Nav.Link
             onClick={() => prevPage(currentPage)}
-            disabled={currentPage === 1}
+            //disabled={currentPage === 1}
           >
             Previous
           </Nav.Link>
@@ -45,7 +45,7 @@ const Pagination = ({
         <Nav.Item as="li">
           <Nav.Link
             onClick={() => nextPage(currentPage)}
-            disabled={currentPage === pageNumbers.length}
+           // disabled={currentPage === pageNumbers.length}
           >
             Next
           </Nav.Link>
