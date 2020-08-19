@@ -51,6 +51,8 @@ public class MovieController {
 	@GetMapping("/movie/search")
 	public List<Movie> getSearchMoives(@RequestParam(name = "query", required = false) String query) {
 
+		query = query == null ? "" : query;
+
 		return _traktservice.getTraktSearchbMovies(query);
 	}
 

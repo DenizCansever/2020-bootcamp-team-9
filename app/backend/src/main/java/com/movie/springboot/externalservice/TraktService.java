@@ -23,6 +23,7 @@ import com.movie.springboot.models.MovieImages;
 import com.movie.springboot.models.MovieSearch;
 import com.movie.springboot.models.MovieTrending;
 import com.movie.springboot.models.People;
+import com.movie.springboot.models.PeopleList;
 
 @Service
 public class TraktService {
@@ -184,41 +185,59 @@ public class TraktService {
 
 		HttpEntity<?> request = getHttpEntity();
 
-		ResponseEntity<MovieDetail> response = this.restTemplate.exchange(url, HttpMethod.GET, request,
-				MovieDetail.class, 1);
+		MovieDetail movieDetail = new MovieDetail();
 
-		if (response.getStatusCode() == HttpStatus.OK) {
+		try {
+			ResponseEntity<MovieDetail> response = this.restTemplate.exchange(url, HttpMethod.GET, request,
+					MovieDetail.class, 1);
 
-			MovieDetail item = response.getBody();
+			if (response.getStatusCode() == HttpStatus.OK) {
 
-			MovieImages images = _fanartService.getImages(item.getIds().getTmdb());
+				movieDetail = response.getBody();
 
-			if (images.getHdmovieclearart() != null) {
-				item.setMovieClearArtImage(images.getHdmovieclearart()[0].getUrl());
+				MovieImages images = _fanartService.getImages(movieDetail.getIds().getTmdb());
+
+				if (images.getHdmovieclearart() != null) {
+					movieDetail.setMovieClearArtImage(images.getHdmovieclearart()[0].getUrl());
+				}
+				if (images.getMovieposter() != null) {
+
+					movieDetail.setMoviePosterImage(images.getMovieposter()[0].getUrl());
+				}
+				movieDetail.setPeople(getPeopleList(traktId).getPeople());
+
+				return movieDetail;
+
+			} else {
+
+				return movieDetail;
 			}
-			if (images.getMovieposter() != null) {
-
-				item.setMoviePosterImage(images.getMovieposter()[0].getUrl());
-			}
-			item.setPeople(getPeopleList(traktId).getPeople());
-
-			return item;
-
-		} else {
-
-			return new MovieDetail();
+		} catch (Exception e) {
+			return movieDetail;
 		}
 	}
 
 	private People getPeopleList(Long traktId) {
 
-		String url = "https://api.trakt.tv/movies/" + traktId + "/people";
+		try {
 
-		HttpEntity<?> request = getHttpEntity();
+			String url = "https://api.trakt.tv/movies/" + traktId + "/people";
 
-		ResponseEntity<People> response = this.restTemplate.exchange(url, HttpMethod.GET, request, People.class, 1);
+			HttpEntity<?> request = getHttpEntity();
 
-		return response.getBody();
+			ResponseEntity<People> response = this.restTemplate.exchange(url, HttpMethod.GET, request, People.class, 1);
+
+			return response.getBody();
+
+		} catch (Exception e) {
+
+			People people = new People();
+
+			people.setPeople((PeopleList[]) new ArrayList<PeopleList>().toArray());
+
+			return people;
+
+		}
 
 	}
 
