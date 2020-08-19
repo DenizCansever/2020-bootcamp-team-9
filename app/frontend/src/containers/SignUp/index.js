@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import { signUp } from '../../redux/authActions'
 import { connect } from 'react-redux'
 
+
 function SignUp(props) {
     const dispatch = useDispatch();
     const history = useHistory();
