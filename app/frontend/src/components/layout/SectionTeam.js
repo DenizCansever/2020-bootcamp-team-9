@@ -70,7 +70,14 @@ export class SectionTeam extends Component {
                 <img src={deniz} style={{ width: "100%", padding: "10px" }} />
                 <div class="team-container">
                   <h2>Deniz Cansever</h2>
-                  <p class="team-title">Full Stack Developer</p>
+                  <p
+                    class="team-title"
+                    style={{
+                      fontFamily: "Georgia,times new roman,Times,serif",
+                    }}
+                  >
+                    Full Stack Developer
+                  </p>
                   <p style={{ color: "blue", textDecoration: "underline" }}>
                     denizevenstar@gmail.com
                   </p>
@@ -82,7 +89,14 @@ export class SectionTeam extends Component {
                 <img src={zeynep} style={{ width: "100%", padding: "10px" }} />
                 <div class="team-container">
                   <h2>Zeynep Bekem</h2>
-                  <p class="team-title">Full Stack Developer</p>
+                  <p
+                    class="team-title"
+                    style={{
+                      fontFamily: "Georgia,times new roman,Times,serif",
+                    }}
+                  >
+                    Full Stack Developer
+                  </p>
                   <p style={{ color: "blue", textDecoration: "underline" }}>
                     zbekem@gmail.com
                   </p>
@@ -97,7 +111,14 @@ export class SectionTeam extends Component {
                 <img src={burak} style={{ width: "100%", padding: "10px" }} />
                 <div class="team-container">
                   <h2>Burak Gündoğdu</h2>
-                  <p class="team-title">Full Stack Developer</p>
+                  <p
+                    class="team-title"
+                    style={{
+                      fontFamily: "Georgia,times new roman,Times,serif",
+                    }}
+                  >
+                    Full Stack Developer
+                  </p>
                   <p style={{ color: "blue", textDecoration: "underline" }}>
                     burak.gundogdu0131@gmail.com
                   </p>
@@ -109,7 +130,14 @@ export class SectionTeam extends Component {
                 <img src={filiz} style={{ width: "100%", padding: "10px" }} />
                 <div class="team-container">
                   <h2>Filiz Gözet</h2>
-                  <p class="team-title">Full Stack Developer</p>
+                  <p
+                    class="team-title"
+                    style={{
+                      fontFamily: "Georgia,times new roman,Times,serif",
+                    }}
+                  >
+                    Full Stack Developer
+                  </p>
                   <p style={{ color: "blue", textDecoration: "underline" }}>
                     filiz.gozet9@gmail.com
                   </p>
@@ -121,7 +149,14 @@ export class SectionTeam extends Component {
                 <img src={ali} style={{ width: "100%", padding: "10px" }} />
                 <div class="team-container">
                   <h2>Ali Ramazan Mert</h2>
-                  <p class="team-title">Full Stack Developer</p>
+                  <p
+                    class="team-title"
+                    style={{
+                      fontFamily: "Georgia,times new roman,Times,serif",
+                    }}
+                  >
+                    Full Stack Developer
+                  </p>
                   <p style={{ color: "blue", textDecoration: "underline" }}>
                     mertaliramazan98@gmail.com
                   </p>

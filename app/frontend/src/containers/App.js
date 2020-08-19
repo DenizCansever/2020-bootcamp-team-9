@@ -5,6 +5,7 @@ import SignUp from "../containers/SignUp";
 import Search from "../containers/Search";
 import MovieDetail from "../containers/MovieDetail";
 import About from "../containers/About";
+import Profile from "../containers/Profile";
 import Watched from "../components/layout/Watched";
 import AddMovie from "../components/layout/AddMovie";
 
@@ -28,6 +29,7 @@ function App() {
         <Route path="/watched" component={Watched} />
         <Route path="/addmovie" component={AddMovie} />
         <Route path="/about" component={About} />
+        <Route path="/profile" component={Profile} />
         <Route path="/search" component={Search} />
       </Switch>
     </Router>
