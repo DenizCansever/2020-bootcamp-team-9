@@ -20,14 +20,22 @@ const store = createStore(rootReducer,
   )
 );
 
+const profileSpecificProps = {
+  userProfile: 'users',
+  presence: 'presence',
+  useFirestoreForProfile: true,
+  enableRedirectHandling: false,
+  resetBeforeLogin: false
+}
+
 const rrfProps = {
   firebase,
   config: firebaseConfig,
+  config: profileSpecificProps,
   dispatch: store.dispatch,
   createFirestoreInstance,
-  userProfile: 'users', // where profiles are stored in database
-  presence: 'presence', // where list of online users is stored in database
-  sessions: 'sessions'
+  
+  
 };
 
 function AuthIsLoaded({ children }) {

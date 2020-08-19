@@ -11,8 +11,7 @@ export const signIn = (credentials, x) => {
             credentials.userEmail,
             credentials.userPassword
 
-        ).then((response) => {
-            console.log("login",response)
+        ).then((resp) => {
             x.push('/profile');
             dispatch({ type: 'LOGIN_SUCCESS' });
             
@@ -50,14 +49,16 @@ export const signUp = (newUser, x) => {
             localStorage.setItem('userId', resp.user.uid);
 
 
+            
             return firestore.collection('users').doc(resp.user.uid).set({
                 userFirstName: newUser.userFirstName,
                 userLastName: newUser.userLastName,
                 userAge: newUser.userAge,
                 initials: newUser.userFirstName[0].toUpperCase() + newUser.userLastName[0].toUpperCase()
             })
-        }).then((response) => {
+        }).then(() => {
             
+
             x.push('/profile');
             dispatch({ type: 'SIGNUP_SUCCESS' })
           

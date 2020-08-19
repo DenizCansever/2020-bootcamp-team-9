@@ -32,6 +32,7 @@ function App() {
           <Route path="/addmovie" component={AddMovie} />
           <Route path="/about" component={About} />
           <Route path="/results" component={Results} />
+          <Route path="/profile" component={Profile} />
         </Switch>
       </Router>
     </GlobalProvider>

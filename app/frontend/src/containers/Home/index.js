@@ -6,13 +6,23 @@ import Footer from "../../components/layout/Footer";
 export class Main extends Component {
     render() {
         return (
-            <div className="initial-top">
-                <div className="initial-content">
-                    <h1>District X</h1>
-                    <h2>DISCOVER ALL MOVIES & TV SERIES</h2>
-                    <Link to="/signup" className="initial-btn">JOIN DISTRICTX FOR FREE</Link>
-                </div>
-            </div>
+        <div>
+
+                    <div className="initial-top">
+                        <div className="initial-content">
+                            <h1>District X</h1>
+                            <h2>DISCOVER ALL MOVIES & TV SERIES</h2>
+                            <Link to="/signup" className="initial-btn">JOIN FOR FREE</Link>
+                        </div>
+                    </div>
+                    <div className="initial-second">
+                        <div className="initial-content2">
+                            <h4>DistrictX is a platform that primarily keeps track of TV shows and movies you watched or plan to watch in the future. </h4>
+                            <h4>Sign up now, start managing your personal TV & movie lists, see what's trending and popular. DistrictX is free to use!</h4>
+                        </div>
+                    </div>
+
+                    </div>
         )
     }
 }
