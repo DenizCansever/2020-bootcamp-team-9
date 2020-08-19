@@ -1,18 +1,19 @@
-#root {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+.wrapper {
+  min-height: 100%;
+
+  /* Equal to height of footer */
+  /* But also accounting for potential margin-bottom of last child */
+  margin-bottom: -40px;
 }
 
-.content {
-  flex: 1 0 auto;
-  padding: 10px;
+.push {
+  height: 60px;
 }
 
 .footer {
-  margin-top: 50px;
-  flex-shrink: 0;
+  font-size: large;
   text-align: center;
-  background-color: dodgerblue;
-  color: white;
+  background-color: #343a40;
+  height: 40px;
 }
+

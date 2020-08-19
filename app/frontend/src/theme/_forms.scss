@@ -15,16 +15,14 @@
 }
 
 .initial-top {
-    width: 100vw;
     height: 85vh;
     position: relative;
     background: radial-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), 
         url(../images/mainpage_initial.jpg) no-repeat center center/cover;
         
     .initial-content{
-        width: 65%;
         position: relative;
-        margin: 10rem auto 0;
+        top: 25%;
         display: flex;
         justify-content: center;
         align-content: center;

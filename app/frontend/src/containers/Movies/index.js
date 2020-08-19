@@ -14,15 +14,14 @@ import "../../theme/_sidebar.scss";
 import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
 import { Link } from "react-router-dom";
 import Spinner from "../../components/layout/Spinner";
-import Loader from 'react-loader-spinner'
+import "../../theme/_footer.scss";
 
 
 const Movies = (e) => {
+  const [state, setState] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(15);
-  const [movieByGenre, setMovieByGenre] = useState([]);
-  const [query, setQuery] = useState([]);
 
   // Sonradan Eklenenler
   const [popularMovies, setPopularMovies] = useState([]);
@@ -54,13 +53,6 @@ const Movies = (e) => {
             style={{ fontSize: 95, color: "#f4c10f" }}
           ></i>
         </div>
-        {/* Slider'a yazı ekleyip kaldırabilirsin */}
-        {/* <div
-          className="carousel-caption"
-          style={{ textAlign: "center", fontSize: 35 }}
-        >
-          {item.title}
-        </div> */}
       </div>
     );
   });
@@ -76,16 +68,10 @@ const Movies = (e) => {
   const prevPage = (currentPage) => setCurrentPage(currentPage - 1);
 
   return isLoading ? (
-    <Loader
-    type="Puff"
-    color="#00BFFF"
-    height={100}
-    width={100}
-    timeout={3000} //3 secs
- />
+    <Spinner/>
   ) : (
     <>
-      <div className="container-fluid">
+      <div className="container-fluid wrapper-content">
         <div className="row">
           <div className="col-md-9" id="carousel">
             <RBCarousel
@@ -103,19 +89,12 @@ const Movies = (e) => {
           <div className="col-md-9" id="sidebar-wrapper">
             <section className="cards">
               {popularMovies.slice(0, 20).map((item, index) => (
-                <Card item={item}></Card>
+                <Card item={item} index={index}></Card>
               ))}
             </section>
           </div>
         </div>
-        <StickyBox>
-          <div className="sidenav">
-            <Link to="/movies/trending">Trending</Link>
-            <Link to="/movies/popular">Popular</Link>
-          </div>
-        </StickyBox>
-      </div>
-      <div className="row">
+        <div className="row">
         <Pagination
           itemsPerPage={itemsPerPage}
           totalItems={popularMovies.length}
@@ -125,7 +104,14 @@ const Movies = (e) => {
           prevPage={prevPage}
         />
       </div>
-      <Footer />
+        <StickyBox>
+          <div className="sidenav">
+            <Link to="/movies/trending">Trending</Link>
+            <Link to="/movies/popular">Popular</Link>
+          </div>
+        </StickyBox>
+        <div className="push"></div>
+      </div>     
     </>
   );
 };

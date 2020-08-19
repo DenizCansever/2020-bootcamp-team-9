@@ -1,19 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import SignInLink from "./SignInLink";
 import SignOutLink from "./SignOutLink";
+import { Redirect, Link, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
-import {
-  Navbar as DCNavbar,
-  Nav,
-  Form,
-  FormControl,
-  Button,
-} from "react-bootstrap";
+import { Navbar as DCNavbar, Nav } from "react-bootstrap";
 
 import "../../theme/_search.scss";
+import Search from "../../containers/Search";
 
 const Navbar = (props) => {
   const { auth } = props;
+  const history = useHistory();
+  const [state, setState] = useState({
+    s: "",
+    results: [],
+    selected: {},
+  });
+
+  const search = (e) => {
+    if (e.key === "Enter") {
+      axios
+        .get(
+          `https://eterationmovies.azurewebsites.net/api/movie/search?query=${state.s}`
+        )
+        .then((response) => {
+          let results = response.data;
+
+          setState((prevState) => {
+            return { ...prevState, results: results};
+          });
+          history.push({
+            pathname: '/results',
+            state: {
+              results
+            }
+          });
+        });
+    }
+  };
+
+  const handleInput = (e) => {
+    let s = e.target.value;
+
+    setState((prevState) => {
+      return { ...prevState, s: s };
+    });
+  };
 
   const links = auth.uid ? <SignInLink /> : <SignOutLink />;
 
@@ -22,28 +55,13 @@ const Navbar = (props) => {
       <DCNavbar.Brand href="/">DistrictX</DCNavbar.Brand>
       <DCNavbar.Toggle aria-controls="basic-navbar-nav" />
       <DCNavbar.Collapse>
-        <Form id="demo-2" class="expanding-search form-inline my-2 my-lg-0">
-          <input
-            type="search"
-            class="form-control expanding-search mr-sm-2"
-            placeholder="Search"
-            aria-label="Search"
-          />
-
-          <button
-            class="sr-only btn btn-outline-success my-2 my-sm-0"
-            type="submit"
-          >
-            Search
-          </button>
-        </Form>
+        <Search handleInput={handleInput} search={search} />
+        {/* <Results results={state.results} /> */}
         <Nav className="mr-auto">
           <Nav.Link href="/movies">Movies</Nav.Link>
-          <Nav.Link href="/tv">Tv</Nav.Link>
           <Nav.Link href="/watched">Watched</Nav.Link>
           <Nav.Link href="/addmovie">Add</Nav.Link>
           <Nav.Link href="/about">About</Nav.Link>
-          <Nav.Link href="/search">Search</Nav.Link>
         </Nav>
         <Nav>{links}</Nav>
       </DCNavbar.Collapse>

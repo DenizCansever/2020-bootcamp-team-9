@@ -14,7 +14,6 @@ function AddMovie() {
     fetchAPI();
   }, []);
 
-  console.log("hiiii", popularMovies.ids);
 
   const movies = popularMovies.slice(0, 5).map((item, index) => {
     return (

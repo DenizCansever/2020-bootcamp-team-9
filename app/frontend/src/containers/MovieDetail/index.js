@@ -1,24 +1,20 @@
 import React, { useState, useEffect } from "react";
 
-import { fetchMovieDetail, fetchCasts } from "../../service";
+import { fetchMovieDetail } from "../../service";
 import SectionHero from "../../components/layout/SectionHero";
 //import SectionMoreDetails from "../../components/layout/SectionMoreDetails";
 
 import { Row, Col } from "react-bootstrap";
-import { Modal } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
 
 function MovieDetail({ match }) {
   let params = match.params;
   let genres = [];
   let cast = [];
-  const [casts, setCasts] = useState([]);
   const [detail, setMovieDetail] = useState([]);
 
   useEffect(() => {
     const fetchAPI = async () => {
-      setCasts(await fetchCasts(params.id));
       setMovieDetail(await fetchMovieDetail(params.id));
     };
     fetchAPI();
@@ -26,16 +22,6 @@ function MovieDetail({ match }) {
 
   genres = detail.genres;
   cast = detail.people;
-  console.log("genres", genres);
-  console.log("cast", cast);
-
-  //  const castList = cast.slice(0, 4).map((c, i) => {
-  //    return (
-  //      <div className="col-md-3 text-center" key={i}>
-  //        <div>{c.character}</div>
-  //      </div>
-  //    );
-  //  });
 
   // Get genres
   let genresList;

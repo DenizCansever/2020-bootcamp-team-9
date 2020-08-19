@@ -5,7 +5,7 @@ export class SectionAbout extends Component {
   render() {
     return (
       <div
-        class="section-about"
+        className="section-about"
         style={{
           backgroundPosition: "right center",
           backgroundSize: "cover",
