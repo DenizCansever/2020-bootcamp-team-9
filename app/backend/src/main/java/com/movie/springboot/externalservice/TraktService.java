@@ -18,7 +18,6 @@ import org.springframework.web.client.RestTemplate;
 
 import com.movie.springboot.models.Movie;
 import com.movie.springboot.models.MovieDetail;
-import com.movie.springboot.models.MovieId;
 import com.movie.springboot.models.MovieImages;
 import com.movie.springboot.models.MovieSearch;
 import com.movie.springboot.models.MovieTrending;
@@ -58,14 +57,12 @@ public class TraktService {
 				for (Movie item : movieList) {
 					MovieImages images = _fanartService.getImages(item.getIds().getTmdb());
 
-					if (images.getHdmovieclearart() != null) {
+					item.setMovieClearArtImage(
+							images.getHdmovieclearart() != null ? images.getHdmovieclearart()[0].getUrl()
+									: tryToGetRandomImage(images));
 
-						item.setMovieClearArtImage(images.getHdmovieclearart()[0].getUrl());
-					}
-					if (images.getMovieposter() != null) {
-
-						item.setMoviePosterImage(images.getMovieposter()[0].getUrl());
-					}
+					item.setMoviePosterImage(images.getMovieposter() != null ? images.getMovieposter()[0].getUrl()
+							: tryToGetRandomImage(images));
 
 				}
 
@@ -109,14 +106,12 @@ public class TraktService {
 
 					MovieImages images = _fanartService.getImages(item.getMovie().getIds().getTmdb());
 
-					if (images.getHdmovieclearart() != null) {
+					movie.setMovieClearArtImage(
+							images.getHdmovieclearart() != null ? images.getHdmovieclearart()[0].getUrl()
+									: tryToGetRandomImage(images));
 
-						movie.setMovieClearArtImage(images.getHdmovieclearart()[0].getUrl());
-					}
-					if (images.getMovieposter() != null) {
-
-						movie.setMoviePosterImage(images.getMovieposter()[0].getUrl());
-					}
+					movie.setMoviePosterImage(images.getMovieposter() != null ? images.getMovieposter()[0].getUrl()
+							: tryToGetRandomImage(images));
 
 					movieList.add(movie);
 				}
@@ -130,6 +125,18 @@ public class TraktService {
 
 			return movieList;
 		}
+
+	}
+
+	private String tryToGetRandomImage(MovieImages image) {
+
+		return image.getHdmovielogo() != null ? image.getHdmovielogo()[0].getUrl()
+				: image.getMoviebanner() != null ? image.getMoviebanner()[0].getUrl()
+						: image.getMoviethumb() != null ? image.getMoviethumb()[0].getUrl()
+								: image.getMoviedisc() != null ? image.getMoviedisc()[0].getUrl()
+										: image.getHdmovieclearart() != null ? image.getHdmovieclearart()[0].getUrl()
+												: image.getMovieposter() != null ? image.getMovieposter()[0].getUrl()
+														: "";
 
 	}
 
@@ -153,13 +160,12 @@ public class TraktService {
 					Movie movie = new Movie();
 
 					MovieImages images = _fanartService.getImages(item.getMovie().getIds().getTmdb());
-					if (images.getHdmovieclearart() != null) {
-						movie.setMovieClearArtImage(images.getHdmovieclearart()[0].getUrl());
-					}
-					if (images.getMovieposter() != null) {
+					movie.setMovieClearArtImage(
+							images.getHdmovieclearart() != null ? images.getHdmovieclearart()[0].getUrl()
+									: tryToGetRandomImage(images));
 
-						movie.setMoviePosterImage(images.getMovieposter()[0].getUrl());
-					}
+					movie.setMoviePosterImage(images.getMovieposter() != null ? images.getMovieposter()[0].getUrl()
+							: tryToGetRandomImage(images));
 
 					movie.setIds(item.getMovie().getIds());
 					movie.setTitle(item.getMovie().getTitle());
@@ -197,13 +203,12 @@ public class TraktService {
 
 				MovieImages images = _fanartService.getImages(movieDetail.getIds().getTmdb());
 
-				if (images.getHdmovieclearart() != null) {
-					movieDetail.setMovieClearArtImage(images.getHdmovieclearart()[0].getUrl());
-				}
-				if (images.getMovieposter() != null) {
+				movieDetail.setMovieClearArtImage(
+						images.getHdmovieclearart() != null ? images.getHdmovieclearart()[0].getUrl()
+								: tryToGetRandomImage(images));
 
-					movieDetail.setMoviePosterImage(images.getMovieposter()[0].getUrl());
-				}
+				movieDetail.setMoviePosterImage(images.getMovieposter() != null ? images.getMovieposter()[0].getUrl()
+						: tryToGetRandomImage(images));
 				movieDetail.setPeople(getPeopleList(traktId).getPeople());
 
 				return movieDetail;

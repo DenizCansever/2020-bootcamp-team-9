@@ -9,12 +9,11 @@ import com.movie.springboot.models.Movie;
 
 @Document(collection = "users")
 public class User {
-	 @Id
-	  private String id;
-	 private String name;
-	 
-	 private List<Movie> watched;
-	 
+	@Id
+	private String id;
+	private String name;
+
+	private List<Movie> watched;
 
 	public String getId() {
 		return id;
@@ -38,12 +37,11 @@ public class User {
 
 	public void setWatched(List<Movie> watched) {
 		this.watched = watched;
-	} 
-	
+	}
+
 	public void addMovie(Movie movie) {
-		
+
 		this.watched.add(movie);
 	}
-	 
 
 }
