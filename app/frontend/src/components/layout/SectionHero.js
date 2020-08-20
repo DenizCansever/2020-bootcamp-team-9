@@ -23,7 +23,7 @@ const SectionHero = ({ movie, genres, cast }) => {
           backgroundImage: `url(${movie.movieClearArtImage})`,
         }}
       >
-        <Button
+        {/* <Button
           className="btn-addlist"
           variant="primary"
           size="lg"
@@ -38,7 +38,7 @@ const SectionHero = ({ movie, genres, cast }) => {
           onClick={() => addMoviesList(movie)}
         >
           ADD LIST
-        </Button>
+        </Button> */}
         <div className="image-hero">
           <div className="content-info">
             <h1 style={{ fontSize: "30px", color: "#FFF" }}>{movie.title}</h1>
@@ -121,30 +121,73 @@ const SectionHero = ({ movie, genres, cast }) => {
               >
                 {"  " + movie.votes}
               </span>
+
+              <span
+                style={{
+                  fontSize: "15px",
+                  color: "#a3a3a3",
+                  paddingLeft: "15px",
+                }}
+              >
+                {/* <a
+                  href=""
+                  onClick={() => openInNewTab(movie.homepage)}
+                  style={{ color: "#a3a3a3" }}
+                >
+                  Find Where To Watch
+                </a> */}
+              </span>
             </div>
             <p></p>
-            <a href="" onClick={() => openInNewTab(movie.homepage)}>
-              İzleyebileceğiniz Yerler
-            </a>
+            <div>
+              <span>
+                <Button
+                  className="btn-addlist"
+                  variant="primary"
+                  onClick={() => addWatchedMoviesList(movie)}
+                >
+                  ADD WATCHED LIST
+                </Button>
+              </span>
+              <span
+                style={{
+                  paddingLeft: "15px",
+                }}
+              >
+                <Button
+                  className="btn-addlist"
+                  variant="primary"
+                  onClick={() => addMoviesList(movie)}
+                >
+                  ADD LIST
+                </Button>
+              </span>
+            </div>
             <p></p>
-            {/* <Button
-              className="btn-addlist"
-              variant="primary"
-              size="lg"
-              onClick={() => addWatchedMoviesList(movie)}
-            >
-              ADD WATCHED LIST
-            </Button>
-            <Button
-              className="btn-addlist"
-              variant="primary"
-              size="lg"
-              onClick={() => addMoviesList(movie)}
-            >
-              ADD LIST
-            </Button> */}
-
-            {movie.trailer}
+            <div>
+              <span>
+                <Button
+                  className="btn-addlist"
+                  variant="primary"
+                  onClick={() => openInNewTab(movie.homepage)}
+                >
+                  WATCH NOW
+                </Button>
+              </span>
+              <span
+                style={{
+                  paddingLeft: "15px",
+                }}
+              >
+                <Button
+                  className="btn-addlist"
+                  variant="primary"
+                  onClick={() => openInNewTab(movie.trailer)}
+                >
+                  TRAILER
+                </Button>
+              </span>
+            </div>
           </div>
         </div>
       </div>
