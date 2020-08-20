@@ -44,94 +44,122 @@ export class SectionTeam extends Component {
           >
             Meet Our Team
           </h1>
-          <div className="team-row">
-            <div className="team-column">
-              <div className="team-card">
-                <img src={kerem} style={{ width: "100%", padding: "10px" }} />
-                <div className="team-container">
-                  <h2 className="text-name">Kerem Çubuk</h2>
-                  <p className="team-title">Mentor</p>
-                  <p>jane@example.com</p>
-                </div>
-              </div>
-            </div>
-            <div className="team-column">
-              <div className="team-card">
-                <img src={deniz} style={{ width: "100%", padding: "10px" }} />
-                <div className="team-container">
-                  <h2>Deniz Cansever</h2>
-                  <p className="team-title">Full Stack Developer</p>
-                  <p>mike@example.com</p>
-                </div>
-              </div>
-            </div>
-            <div className="team-column">
-              <div className="team-card">
-                <img src={zeynep} style={{ width: "100%", padding: "10px" }} />
-                <div className="team-container">
-                  <h2>Zeynep Bekem</h2>
-                  <p className="team-title">Full Stack Developer</p>
-                  <p>zbekem@gmail.com</p>
-                </div>
-              </div>
-            </div>
 
-            <div className="team-row">
-              <div className="team-column">
-                <div className="team-card">
-                  <img src={burak} style={{ width: "100%", padding: "10px" }} />
-                  <div class="team-container">
-                    <h2>Burak Gündoğdu</h2>
-                    <p
-                      className="team-title"
-                      style={{
-                        fontFamily: "Georgia,times new roman,Times,serif",
-                      }}
-                    >
-                      Full Stack Developer
-                    </p>
-                    <p style={{ color: "blue", textDecoration: "underline" }}>
-                      burak.gundogdu0131@gmail.com
-                    </p>
-                  </div>
+          <div class="team-row">
+            <div class="team-column">
+              <div class="team-card">
+                <img src={kerem} style={{ width: "100%", padding: "10px" }} />
+                <div class="team-container">
+                  <h2 class="text-name">Kerem Çubuk</h2>
+                  <p
+                    class="team-title"
+                    style={{
+                      fontFamily: "Georgia,times new roman,Times,serif",
+                    }}
+                  >
+                    Mentor
+                  </p>
+                  <p style={{ color: "blue", textDecoration: "underline" }}>
+                    kerem.cubuk@eteration.com.tr
+                  </p>
                 </div>
               </div>
-              <div className="team-column">
-                <div className="team-card">
-                  <img src={filiz} style={{ width: "100%", padding: "10px" }} />
-                  <div className="team-container">
-                    <h2>Filiz Gözet</h2>
-                    <p
-                      className="team-title"
-                      style={{
-                        fontFamily: "Georgia,times new roman,Times,serif",
-                      }}
-                    >
-                      Full Stack Developer
-                    </p>
-                    <p style={{ color: "blue", textDecoration: "underline" }}>
-                      filiz.gozet9@gmail.com
-                    </p>
-                  </div>
+            </div>
+            <div class="team-column">
+              <div class="team-card">
+                <img src={deniz} style={{ width: "100%", padding: "10px" }} />
+                <div class="team-container">
+                  <h2>Deniz Cansever</h2>
+                  <p
+                    class="team-title"
+                    style={{
+                      fontFamily: "Georgia,times new roman,Times,serif",
+                    }}
+                  >
+                    Frontend Developer
+                  </p>
+                  <p style={{ color: "blue", textDecoration: "underline" }}>
+                    denizevenstar@gmail.com
+                  </p>
                 </div>
               </div>
-              <div className="team-column">
-                <div className="team-card">
-                  <img src={ali} style={{ width: "100%", padding: "10px" }} />
-                  <div className="team-container">
-                    <h2>Ali Ramazan Mert</h2>
-                    <p
-                      className="team-title"
-                      style={{
-                        fontFamily: "Georgia,times new roman,Times,serif",
-                      }}
-                    >
-                      Full Stack Developer
-                    </p>
-                    <p style={{ color: "blue", textDecoration: "underline" }}>
-                      mertaliramazan98@gmail.com
-                    </p>
-                  </div>
+            </div>
+            <div class="team-column">
+              <div class="team-card">
+                <img src={zeynep} style={{ width: "100%", padding: "10px" }} />
+                <div class="team-container">
+                  <h2>Zeynep Bekem</h2>
+                  <p
+                    class="team-title"
+                    style={{
+                      fontFamily: "Georgia,times new roman,Times,serif",
+                    }}
+                  >
+                    Frontend Developer
+                  </p>
+                  <p style={{ color: "blue", textDecoration: "underline" }}>
+                    zbekem@gmail.com
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="team-row">
+            <div class="team-column">
+              <div class="team-card">
+                <img src={burak} style={{ width: "100%", padding: "10px" }} />
+                <div class="team-container">
+                  <h2>Burak Gündoğdu</h2>
+                  <p
+                    class="team-title"
+                    style={{
+                      fontFamily: "Georgia,times new roman,Times,serif",
+                    }}
+                  >
+                    Backend Developer
+                  </p>
+                  <p style={{ color: "blue", textDecoration: "underline" }}>
+                    burak.gundogdu0131@gmail.com
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="team-column">
+              <div class="team-card">
+                <img src={filiz} style={{ width: "100%", padding: "10px" }} />
+                <div class="team-container">
+                  <h2>Filiz Gözet</h2>
+                  <p
+                    class="team-title"
+                    style={{
+                      fontFamily: "Georgia,times new roman,Times,serif",
+                    }}
+                  >
+                    Frontend Developer
+                  </p>
+                  <p style={{ color: "blue", textDecoration: "underline" }}>
+                    filiz.gozet9@gmail.com
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="team-column">
+              <div class="team-card">
+                <img src={ali} style={{ width: "100%", padding: "10px" }} />
+                <div class="team-container">
+                  <h2>Ali Ramazan Mert</h2>
+                  <p
+                    class="team-title"
+                    style={{
+                      fontFamily: "Georgia,times new roman,Times,serif",
+                    }}
+                  >
+                    Frontend Developer
+                  </p>
+                  <p style={{ color: "blue", textDecoration: "underline" }}>
+                    mertaliramazan98@gmail.com
+                  </p>
                 </div>
               </div>
             </div>
