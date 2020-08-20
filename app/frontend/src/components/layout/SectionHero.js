@@ -1,17 +1,18 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Button } from "react-bootstrap";
-import Movies from "../../containers/Movies";
-import { addWatchedMoviesByUser, getWatchedMoviesByUser } from "../../service";
+import { addWatchedMovies, addWatchMovies } from "../../service";
 
 const SectionHero = ({ movie, genres, cast }) => {
-  const addMovieToWatchlist = (movie) => {
-    //console.log(movie)
+  const addWatchedMoviesList = (movie) => {
+    addWatchedMovies(movie);
+  };
 
-    addWatchedMoviesByUser(movie);
+  const addMoviesList = (movie) => {
+    addWatchMovies(movie);
   };
 
   function openInNewTab(url) {
-    var win = window.open(url, "_blank");
+    window.open(url, "_blank");
   }
 
   return (
@@ -22,6 +23,22 @@ const SectionHero = ({ movie, genres, cast }) => {
           backgroundImage: `url(${movie.movieClearArtImage})`,
         }}
       >
+        <Button
+          className="btn-addlist"
+          variant="primary"
+          size="lg"
+          onClick={() => addWatchedMoviesList(movie)}
+        >
+          ADD WATCHED LIST
+        </Button>
+        <Button
+          className="btn-addlist"
+          variant="primary"
+          size="lg"
+          onClick={() => addMoviesList(movie)}
+        >
+          ADD LIST
+        </Button>
         <div className="image-hero">
           <div className="content-info">
             <h1 style={{ fontSize: "30px", color: "#FFF" }}>{movie.title}</h1>
@@ -110,14 +127,23 @@ const SectionHero = ({ movie, genres, cast }) => {
               İzleyebileceğiniz Yerler
             </a>
             <p></p>
+            {/* <Button
+              className="btn-addlist"
+              variant="primary"
+              size="lg"
+              onClick={() => addWatchedMoviesList(movie)}
+            >
+              ADD WATCHED LIST
+            </Button>
             <Button
               className="btn-addlist"
               variant="primary"
               size="lg"
-              onClick={() => addMovieToWatchlist(movie)}
+              onClick={() => addMoviesList(movie)}
             >
               ADD LIST
-            </Button>
+            </Button> */}
+
             {movie.trailer}
           </div>
         </div>

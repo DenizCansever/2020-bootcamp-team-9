@@ -40,7 +40,7 @@ export const fetchMovieDetail = async (id) => {
   } catch (error) {}
 };
 
-export const getWatchedMoviesByUser = async () => {
+export const getWatchedMovies = async () => {
   try {
     let userId = localStorage.getItem("userId");
 
@@ -50,11 +50,39 @@ export const getWatchedMoviesByUser = async () => {
   } catch (error) {}
 };
 
-export const addWatchedMoviesByUser = async (movie) => {
+export const getWatchMovies = async () => {
+  try {
+    let userId = localStorage.getItem("userId");
+
+    const response = await axios.get(`${api_url}/user/${userId}/watches`);
+
+    return response.data;
+  } catch (error) {}
+};
+
+export const addWatchedMovies = async (movie) => {
   try {
     let userId = localStorage.getItem("userId");
 
     const response = await axios.post(`${api_url}/user/${userId}`, {
+      ids: movie.ids,
+      movieClearArtImage: movie.movieClearArtImage,
+      moviePosterImage: movie.moviePosterImage,
+      title: movie.title,
+      watchers: 3,
+      year: movie.year,
+    });
+
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const addWatchMovies = async (movie) => {
+  try {
+    let userId = localStorage.getItem("userId");
+
+    const response = await axios.post(`${api_url}/user/watches/${userId}`, {
       ids: movie.ids,
       movieClearArtImage: movie.movieClearArtImage,
       moviePosterImage: movie.moviePosterImage,

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../../theme/_cards.scss";
 
-const WatchListCard = ({ movie }) => {
+const ListCard = ({ movie }) => {
   return (
     <div className="col-md-3 col-sm-6">
       <div className="card">
@@ -14,4 +14,4 @@ const WatchListCard = ({ movie }) => {
   );
 };
 
-export default WatchListCard;
+export default ListCard;

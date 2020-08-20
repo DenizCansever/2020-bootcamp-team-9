@@ -45,9 +45,8 @@ export const signUp = (newUser, x) => {
             newUser.userPassword
         ).then((resp) => {
 
-            addUser(resp.user.uid,resp.user.email)
             localStorage.setItem('userId', resp.user.uid);
-
+            addUser(resp.user.uid,resp.user.email)
 
             
             return firestore.collection('users').doc(resp.user.uid).set({
