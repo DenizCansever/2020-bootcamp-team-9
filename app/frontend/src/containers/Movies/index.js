@@ -14,30 +14,12 @@ import { Link } from "react-router-dom";
 import Spinner from "../../components/layout/Spinner";
 import "../../theme/_footer.scss";
 
-
-const Movies = () => {
-  const [state, setState] = useState();
+const Movies = ({movies}) => {
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(15);
 
-  // Sonradan Eklenenler
-  const [popularMovies, setPopularMovies] = useState([]);
-  const [trendingMovies, setTrendingMovies] = useState([]);
-
-  useEffect(() => {
-    const fetchAPI = async () => {
-      //Sonradan Eklenenler
-      setIsLoading(true);
-      setPopularMovies(await fetchPopularMovies());
-      setTrendingMovies(await fetchTrendingMovies());
-      setIsLoading(false);
-    };
-
-    fetchAPI();
-  }, []);
-
-  const sliderPopularMovies = popularMovies.slice(0, 5).map((item, index) => {
+  const sliderPopularMovies = movies.slice(0, 5).map((item, index) => {
     return (
       <div style={{ height: 500, width: "100%" }} key={index}>
         <div className="carousel-center">
@@ -60,7 +42,7 @@ const Movies = () => {
   // Get current posts
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const movieList = popularMovies.slice(indexOfFirstItem, indexOfLastItem);
+  const movieList = movies.slice(indexOfFirstItem, indexOfLastItem);
 
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -68,7 +50,7 @@ const Movies = () => {
   const prevPage = (currentPage) => setCurrentPage(currentPage - 1);
 
   return isLoading ? (
-    <Spinner/>
+    <Spinner />
   ) : (
     <>
       <div className="container-fluid wrapper-content">
@@ -95,15 +77,15 @@ const Movies = () => {
           </div>
         </div>
         <div className="row" id="pagination">
-        <Pagination
-          itemsPerPage={itemsPerPage}
-          totalItems={popularMovies.length}
-          paginate={paginate}
-          currentPage={currentPage}
-          nextPage={nextPage}
-          prevPage={prevPage}
-        />
-      </div>
+          <Pagination
+            itemsPerPage={itemsPerPage}
+            totalItems={movies.length}
+            paginate={paginate}
+            currentPage={currentPage}
+            nextPage={nextPage}
+            prevPage={prevPage}
+          />
+        </div>
         <StickyBox>
           <div className="sidenav">
             <Link to="/movies/trending">Trending</Link>
@@ -111,7 +93,7 @@ const Movies = () => {
           </div>
         </StickyBox>
         <div className="push"></div>
-      </div>     
+      </div>
     </>
   );
 };

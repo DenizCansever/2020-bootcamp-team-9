@@ -46,21 +46,23 @@ export const getWatchedMoviesByUser = async () => {
 
     const response = await axios.get(`${api_url}/user/${userId}/watched`);
 
-    console.log(response);
-  } catch (error) {
-    console.log(error);
-  }
+    return response.data;
+  } catch (error) {}
 };
 
 export const addWatchedMoviesByUser = async (movie) => {
   try {
     let userId = localStorage.getItem("userId");
 
-    const response = await axios.post(`${api_url}/user/v3kebqAsJeXna4inh7UN3OcKAcI2`, {
-      movie: movie
+    const response = await axios.post(`${api_url}/user/${userId}`, {
+      ids: movie.ids,
+      movieClearArtImage: movie.movieClearArtImage,
+      moviePosterImage: movie.moviePosterImage,
+      title: movie.title,
+      watchers: 3,
+      year: movie.year,
     });
 
-    console.log("allala", movie);
   } catch (error) {
     console.log(error);
   }

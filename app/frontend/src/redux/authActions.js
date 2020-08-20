@@ -10,8 +10,9 @@ export const signIn = (credentials, x) => {
             credentials.userPassword
 
         ).then((resp) => {
-            x.push('/profile');
             localStorage.setItem('userId', resp.user.uid);
+            console.log("response", resp);
+            x.push('/profile');
             dispatch({ type: 'LOGIN_SUCCESS' });
             
         }).catch((err) => {

@@ -1,38 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../../theme/_cards.scss";
 
-
-const WatchListCard = ({ index, item }) => {
-    if (item != null && item.length > 0) {
-        return (
-            <div>
-                <div>
-                    <h1>Your Watched</h1>
-                </div>
-                <div className="card" id="movie_card">
-                    <div className="card-inner">
-                        <div className="card-front">
-                            <img className="img-fluid" src={item.moviePosterImage} alt={item.title}></img>
-                        </div>
-                        <div className="card-back">
-                            <Link to={`/movie/${item.id}`}>
-                                <h1>{item.title}</h1>
-                            </Link>
-                            <ul>
-                                <li>
-                                    <strong>Title:</strong> {item.title}
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        ); 
-    }
-    else {
-        return <div> <h1>Empty</h1> </div>
-    }
-  
+const WatchListCard = ({ movie }) => {
+  return (
+    <div className="col-md-3 col-sm-6">
+      <div className="card">
+        <Link to={`/movie/${movie.ids.trakt}`}>
+          <img className="img-fluid" src={movie.moviePosterImage} alt={movie.title} />
+        </Link>
+      </div>
+    </div>
+  );
 };
 
 export default WatchListCard;

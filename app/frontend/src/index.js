@@ -11,6 +11,7 @@ import { reduxFirestore, getFirestore, createFirestoreInstance } from 'redux-fir
 import { ReactReduxFirebaseProvider, getFirebase, isLoaded } from 'react-redux-firebase'
 import firebaseConfig from './config/firebaseConfig'
 import firebase from 'firebase/app';
+import Spinner from '../../frontend/src/components/layout/Spinner';
 
 const store = createStore(rootReducer,
   compose(
@@ -40,7 +41,7 @@ const rrfProps = {
 
 function AuthIsLoaded({ children }) {
   const auth = useSelector(state => state.firebase.auth)
-  if (!isLoaded(auth)) return <div>Loading Screen...</div>;
+  if (!isLoaded(auth)) return <Spinner/>;
   return children
 }
 

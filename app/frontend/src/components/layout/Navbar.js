@@ -58,7 +58,7 @@ const Navbar = (props) => {
         <Search handleInput={handleInput} search={search} />
         {/* <Results results={state.results} /> */}
         <Nav className="mr-auto">
-          <Nav.Link href="/movies">Movies</Nav.Link>
+          <Nav.Link href="/movies/popular">Movies</Nav.Link>
           <Nav.Link href="/watched">Watched</Nav.Link>
           <Nav.Link href="/about">About</Nav.Link>
         </Nav>

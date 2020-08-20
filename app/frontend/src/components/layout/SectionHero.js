@@ -1,15 +1,19 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Button } from "react-bootstrap";
 import Movies from "../../containers/Movies";
-import {addWatchedMoviesByUser, getWatchedMoviesByUser} from "../../service";
+import { addWatchedMoviesByUser, getWatchedMoviesByUser } from "../../service";
 
 const SectionHero = ({ movie, genres, cast }) => {
-  
   const addMovieToWatchlist = (movie) => {
-    
+    //console.log(movie)
+
     addWatchedMoviesByUser(movie);
+  };
+
+  function openInNewTab(url) {
+    var win = window.open(url, "_blank");
   }
-  
+
   return (
     <section className="section-hero">
       <div
@@ -20,9 +24,7 @@ const SectionHero = ({ movie, genres, cast }) => {
       >
         <div className="image-hero">
           <div className="content-info">
-            <h1 style={{ fontSize: "30px", color: "#FFF" }}>
-              {movie.title}
-            </h1>
+            <h1 style={{ fontSize: "30px", color: "#FFF" }}>{movie.title}</h1>
             <span style={{ fontSize: "14px", color: "#a3a3a3" }}>
               {movie.year + "  |  "}
             </span>
@@ -104,6 +106,10 @@ const SectionHero = ({ movie, genres, cast }) => {
               </span>
             </div>
             <p></p>
+            <a href="" onClick={() => openInNewTab(movie.homepage)}>
+              İzleyebileceğiniz Yerler
+            </a>
+            <p></p>
             <Button
               className="btn-addlist"
               variant="primary"
@@ -112,13 +118,7 @@ const SectionHero = ({ movie, genres, cast }) => {
             >
               ADD LIST
             </Button>
-            <Button
-              className="btn-addlist"
-              variant="primary"
-              size="lg"
-            >
-              REMOVE LIST
-            </Button>
+            {movie.trailer}
           </div>
         </div>
       </div>
