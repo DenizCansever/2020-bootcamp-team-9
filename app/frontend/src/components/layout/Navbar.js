@@ -60,7 +60,6 @@ const Navbar = (props) => {
         <Nav className="mr-auto">
           <Nav.Link href="/movies">Movies</Nav.Link>
           <Nav.Link href="/watched">Watched</Nav.Link>
-          <Nav.Link href="/addmovie">Add</Nav.Link>
           <Nav.Link href="/about">About</Nav.Link>
         </Nav>
         <Nav>{links}</Nav>
