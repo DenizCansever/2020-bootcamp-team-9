@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./../../theme/_cards.scss";
+// import "./../../theme/_cards.scss";
+import cardImg from "../../images/cardImg.png"
 
 const Card = ({ item }) => {
   return (
@@ -15,9 +16,10 @@ const Card = ({ item }) => {
           </Link>
           <ul>
             <li>
-              <strong>Title:</strong> {item.title}
+              <strong>Year:</strong> {item.year}
             </li>
           </ul>
+          <img src={cardImg} alt="Picture on the Card" style= {{width:"100%", height:"45%"}} />
         </div>
       </div>
     </div>
