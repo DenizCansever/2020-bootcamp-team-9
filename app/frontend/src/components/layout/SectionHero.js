@@ -1,39 +1,33 @@
-import React, {useContext} from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Button } from "react-bootstrap";
-import {GlobalContext} from "../layout/GlobalState";
+import Movies from "../../containers/Movies";
+import {addWatchedMoviesByUser, getWatchedMoviesByUser} from "../../service";
 
-const SectionHero = ({
-  title,
-  year,
-  runtime,
-  genres,
-  overview,
-  backgroundImage,
-  cast,
-  tagline,
-  rating,
-  votes,
-}) => {
-  const { addMovieToWatchlist } = useContext(GlobalContext);
-  //let image=backgroundImage == null? "https://cdn1.thr.com/sites/default/files/imagecache/landscape_928x523/2012/11/movie_theater_interior_a_l.jpg" : backgroundImage;
+const SectionHero = ({ movie, genres, cast }) => {
   
-
+  const addMovieToWatchlist = (movie) => {
+    
+    addWatchedMoviesByUser(movie);
+  }
+  
   return (
     <section className="section-hero">
       <div
         className="container-hero"
         style={{
-          backgroundImage: `url(${backgroundImage})`,
+          backgroundImage: `url(${movie.movieClearArtImage})`,
         }}
       >
         <div className="image-hero">
           <div className="content-info">
-            <h1 style={{ fontSize: "30px", color: "#FFF" }}>{title}</h1>
+            <h1 style={{ fontSize: "30px", color: "#FFF" }}>
+              {movie.title}
+            </h1>
             <span style={{ fontSize: "14px", color: "#a3a3a3" }}>
-              {year + "  |  "}
+              {movie.year + "  |  "}
             </span>
             <span style={{ fontSize: "14px", color: "#a3a3a3" }}>
-              {runtime + " minute" + "  |  "}
+              {movie.runtime + " minute" + "  |  "}
             </span>
             <span
               style={{
@@ -53,7 +47,7 @@ const SectionHero = ({
                 fontFamily: "Georgia,times new roman,Times,serif",
               }}
             >
-              {tagline}
+              {movie.tagline}
             </p>
             <p> </p>
             <p
@@ -62,7 +56,7 @@ const SectionHero = ({
                 color: "#FFF",
               }}
             >
-              {overview}
+              {movie.overview}
             </p>
             <div>
               <span style={{ fontSize: "15px", color: "#a3a3a3" }}>
@@ -89,7 +83,7 @@ const SectionHero = ({
                   color: "#FFF",
                 }}
               >
-                {"  " + rating}
+                {"  " + movie.rating}
               </span>
               <span
                 style={{
@@ -106,7 +100,7 @@ const SectionHero = ({
                   color: "#FFF",
                 }}
               >
-                {"  " + votes}
+                {"  " + movie.votes}
               </span>
             </div>
             <p></p>
@@ -114,9 +108,16 @@ const SectionHero = ({
               className="btn-addlist"
               variant="primary"
               size="lg"
-              onClick={() => addMovieToWatchlist()}
+              onClick={() => addMovieToWatchlist(movie)}
             >
               ADD LIST
+            </Button>
+            <Button
+              className="btn-addlist"
+              variant="primary"
+              size="lg"
+            >
+              REMOVE LIST
             </Button>
           </div>
         </div>
