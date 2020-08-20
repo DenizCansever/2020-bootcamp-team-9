@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-import { fetchMovieDetail } from "../../service";
+import { fetchMovieDetail, fetchPopularMovies } from "../../service";
 import SectionHero from "../../components/layout/SectionHero";
+import Spinner from "../../components/layout/Spinner";
 //import SectionMoreDetails from "../../components/layout/SectionMoreDetails";
 
 import { Row, Col } from "react-bootstrap";
@@ -11,17 +12,22 @@ function MovieDetail({ match }) {
   let params = match.params;
   let genres = [];
   let cast = [];
-  const [detail, setMovieDetail] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [movieDetail, setMovieDetail] = useState([]);
+  const [popularMovies, setPopularMovies] = useState([]);
 
   useEffect(() => {
     const fetchAPI = async () => {
+      setIsLoading(true);
       setMovieDetail(await fetchMovieDetail(params.id));
+      setPopularMovies(await fetchPopularMovies());
+      setIsLoading(false);
     };
     fetchAPI();
   }, [params.id]);
 
-  genres = detail.genres;
-  cast = detail.people;
+  genres = movieDetail.genres;
+  cast = movieDetail.people;
 
   // Get genres
   let genresList;
@@ -49,30 +55,12 @@ function MovieDetail({ match }) {
     });
   }
 
-  return (
+  return isLoading ? (
+    <Spinner />
+  ) : (
     <Row>
       <Col className="movie-content">
-        <SectionHero
-          title={detail.title}
-          year={detail.year}
-          runtime={detail.runtime}
-          genres={genresList}
-          tagline={detail.tagline}
-          overview={detail.overview}
-          backgroundImage={detail.movieClearArtImage}
-          rating={detail.rating}
-          votes={detail.votes}
-          cast={castList}
-        />
-        {/* <SectionMoreDetails
-          genres={genresList}
-          overview={detail.overview}
-          tagline={detail.tagline}
-          released={detail.released}
-          rating={detail.rating}
-          votes={detail.votes}
-          cast={castList}
-        /> */}
+        <SectionHero movie={movieDetail} genres={genresList} cast={castList} />
       </Col>
     </Row>
   );

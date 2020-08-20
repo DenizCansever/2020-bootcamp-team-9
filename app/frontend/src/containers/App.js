@@ -29,7 +29,6 @@ function App() {
           <Route path="/movies/popular" component={Movies} />
           <Route path="/movie/:id" component={MovieDetail} />
           <Route path="/watched" component={Watched} />
-          <Route path="/addmovie" component={AddMovie} />
           <Route path="/about" component={About} />
           <Route path="/results" component={Results} />
           <Route path="/profile" component={Profile} />

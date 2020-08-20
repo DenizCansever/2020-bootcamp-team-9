@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { fetchPopularMovies } from "../../service/index";
+import { fetchPopularMovies, fetchTrendingMovies } from "../../service/index";
 
 import StickyBox from "react-sticky-box";
 import RBCarousel from "react-bootstrap-carousel";
 
 import Card from "../../components/layout/Card";
-import Footer from "../../components/layout/Footer";
 import Pagination from "../../components/layout/Pagination";
-import { Search } from "../Search";
 
 import "../../theme/_cards.scss";
 import "../../theme/_sidebar.scss";
@@ -17,7 +15,7 @@ import Spinner from "../../components/layout/Spinner";
 import "../../theme/_footer.scss";
 
 
-const Movies = (e) => {
+const Movies = () => {
   const [state, setState] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -25,12 +23,14 @@ const Movies = (e) => {
 
   // Sonradan Eklenenler
   const [popularMovies, setPopularMovies] = useState([]);
+  const [trendingMovies, setTrendingMovies] = useState([]);
 
   useEffect(() => {
     const fetchAPI = async () => {
       //Sonradan Eklenenler
       setIsLoading(true);
       setPopularMovies(await fetchPopularMovies());
+      setTrendingMovies(await fetchTrendingMovies());
       setIsLoading(false);
     };
 
@@ -88,13 +88,13 @@ const Movies = (e) => {
         <div className="row">
           <div className="col-md-9" id="sidebar-wrapper">
             <section className="cards">
-              {popularMovies.slice(0, 20).map((item, index) => (
-                <Card item={item} index={index}></Card>
+              {movieList.slice(0, 20).map((item, index) => (
+                <Card item={item} key={index}></Card>
               ))}
             </section>
           </div>
         </div>
-        <div className="row">
+        <div className="row" id="pagination">
         <Pagination
           itemsPerPage={itemsPerPage}
           totalItems={popularMovies.length}

@@ -3,9 +3,7 @@ import {addUser} from '../service/index'
 
 export const signIn = (credentials, x) => {
     return (dispatch, getState, { getFirebase }) => {
-        const firebase = getFirebase();
-        
-        
+        const firebase = getFirebase();    
 
         firebase.auth().signInWithEmailAndPassword(
             credentials.userEmail,
@@ -13,6 +11,7 @@ export const signIn = (credentials, x) => {
 
         ).then((resp) => {
             x.push('/profile');
+            localStorage.setItem('userId', resp.user.uid);
             dispatch({ type: 'LOGIN_SUCCESS' });
             
         }).catch((err) => {
