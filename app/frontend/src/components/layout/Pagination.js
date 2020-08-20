@@ -1,5 +1,6 @@
-import React from "react";
-import { Nav } from "react-bootstrap";
+import React from 'react';
+import { Nav } from 'react-bootstrap';
+import './../../theme/_buttons.scss';
 
 const Pagination = ({
   itemsPerPage,
@@ -17,16 +18,9 @@ const Pagination = ({
 
   return (
     <React.Fragment>
-      <Nav
-        className="m-auto justify-content-center paginate"
-        variant="pills"
-        as="ul"
-      >
+      <Nav className="m-auto justify-content-center paginate" variant="pills" as="ul">
         <Nav.Item as="li">
-          <Nav.Link
-            onClick={() => prevPage(currentPage)}
-            //disabled={currentPage === 1}
-          >
+          <Nav.Link onClick={() => prevPage(currentPage)} disabled={currentPage === 1}>
             Previous
           </Nav.Link>
         </Nav.Item>
@@ -45,7 +39,7 @@ const Pagination = ({
         <Nav.Item as="li">
           <Nav.Link
             onClick={() => nextPage(currentPage)}
-           // disabled={currentPage === pageNumbers.length}
+            disabled={currentPage === pageNumbers.length}
           >
             Next
           </Nav.Link>
