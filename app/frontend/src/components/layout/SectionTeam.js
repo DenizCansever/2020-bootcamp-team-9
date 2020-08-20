@@ -45,14 +45,14 @@ export class SectionTeam extends Component {
             Meet Our Team
           </h1>
 
-          <div class="team-row">
-            <div class="team-column">
-              <div class="team-card">
+          <div className="team-row">
+            <div className="team-column">
+              <div className="team-card">
                 <img src={kerem} style={{ width: "100%", padding: "10px" }} />
-                <div class="team-container">
-                  <h2 class="text-name">Kerem Çubuk</h2>
+                <div className="team-container">
+                  <h2 className="text-name">Kerem Çubuk</h2>
                   <p
-                    class="team-title"
+                    className="team-title"
                     style={{
                       fontFamily: "Georgia,times new roman,Times,serif",
                     }}
@@ -65,13 +65,13 @@ export class SectionTeam extends Component {
                 </div>
               </div>
             </div>
-            <div class="team-column">
-              <div class="team-card">
+            <div className="team-column">
+              <div className="team-card">
                 <img src={deniz} style={{ width: "100%", padding: "10px" }} />
-                <div class="team-container">
+                <div className="team-container">
                   <h2>Deniz Cansever</h2>
                   <p
-                    class="team-title"
+                    className="team-title"
                     style={{
                       fontFamily: "Georgia,times new roman,Times,serif",
                     }}
@@ -84,13 +84,13 @@ export class SectionTeam extends Component {
                 </div>
               </div>
             </div>
-            <div class="team-column">
-              <div class="team-card">
+            <div className="team-column">
+              <div className="team-card">
                 <img src={zeynep} style={{ width: "100%", padding: "10px" }} />
-                <div class="team-container">
+                <div className="team-container">
                   <h2>Zeynep Bekem</h2>
                   <p
-                    class="team-title"
+                    className="team-title"
                     style={{
                       fontFamily: "Georgia,times new roman,Times,serif",
                     }}
@@ -105,14 +105,14 @@ export class SectionTeam extends Component {
             </div>
           </div>
 
-          <div class="team-row">
-            <div class="team-column">
-              <div class="team-card">
+          <div className="team-row">
+            <div className="team-column">
+              <div className="team-card">
                 <img src={burak} style={{ width: "100%", padding: "10px" }} />
-                <div class="team-container">
+                <div className="team-container">
                   <h2>Burak Gündoğdu</h2>
                   <p
-                    class="team-title"
+                    className="team-title"
                     style={{
                       fontFamily: "Georgia,times new roman,Times,serif",
                     }}
@@ -125,13 +125,13 @@ export class SectionTeam extends Component {
                 </div>
               </div>
             </div>
-            <div class="team-column">
-              <div class="team-card">
+            <div className="team-column">
+              <div className="team-card">
                 <img src={filiz} style={{ width: "100%", padding: "10px" }} />
-                <div class="team-container">
+                <div className="team-container">
                   <h2>Filiz Gözet</h2>
                   <p
-                    class="team-title"
+                    className="team-title"
                     style={{
                       fontFamily: "Georgia,times new roman,Times,serif",
                     }}
@@ -144,13 +144,13 @@ export class SectionTeam extends Component {
                 </div>
               </div>
             </div>
-            <div class="team-column">
-              <div class="team-card">
+            <div className="team-column">
+              <div className="team-card">
                 <img src={ali} style={{ width: "100%", padding: "10px" }} />
-                <div class="team-container">
+                <div className="team-container">
                   <h2>Ali Ramazan Mert</h2>
                   <p
-                    class="team-title"
+                    className="team-title"
                     style={{
                       fontFamily: "Georgia,times new roman,Times,serif",
                     }}

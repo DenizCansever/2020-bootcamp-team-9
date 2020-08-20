@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import "./../../theme/_cards.scss";
 import cardImg from "../../images/cardImg.png"
 
 const Card = ({ item }) => {
@@ -12,9 +11,9 @@ const Card = ({ item }) => {
         </div>
         <div className="card-back">
           <Link to={`/movie/${item.ids.trakt}`}>
-            <h1>{item.title}</h1>
+            <p style={{color: "white"}}>{item.title}</p>
           </Link>
-          <ul>
+          <ul> 
             <li>
               <strong>Year:</strong> {item.year}
             </li>

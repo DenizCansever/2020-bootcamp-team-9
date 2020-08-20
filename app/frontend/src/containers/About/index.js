@@ -5,6 +5,7 @@ import { Row, Col } from "react-bootstrap";
 
 const About = () => {
   return (
+    
     <Row>
       <Col>
         <SectionAbout />

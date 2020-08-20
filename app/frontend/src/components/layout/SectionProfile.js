@@ -11,7 +11,7 @@ const SectionProfile = (props) => {
 
   return (
     <div
-      class="section-profile"
+      className="section-profile"
       style={{
         backgroundImage: `url(${profile})`,
         backgroundPosition: "top center",
@@ -19,7 +19,7 @@ const SectionProfile = (props) => {
         backgroundRepeat: "no-repeat",
         width: "100vw",
         height: "40vh",
-        position: "relative",
+        position: "relative"
       }}
     >
       <img
@@ -29,31 +29,37 @@ const SectionProfile = (props) => {
           borderRadius: "50%",
           width: "300",
           height: "300",
-          bottom: -90,
-          right: "25%",
+          // bottom: -90,
+          // right: "25%",
+          // left: "50%",
+          // marginLeft: -150,
+          // top: 10,
+          bottom: 27,
           left: "50%",
-          marginLeft: -150,
+          right: "50%",
+          transform: "translate(-50%, -50%)"
         }}
       />
-      <div
-        style={{
-          color: "white",
-          position: "absolute",
 
-          bottom: -190,
-          // right: "30%",
-          left: "50%",
-          marginLeft: -150,
-          left: "47.5%",
-          textAlign: "center",
-        }}
-      >
+      <div style={{
+        position: "absolute",
+        left: "50%",
+        right: "50%",
+        transform: "translate(-50%, -50%)",
+        bottom: 1,
+        color: "white",
+        // height: "10vh",
+        width: "200px",
+        textAlign: "center"
+      }}>
         <h2>
           {profile2.userFirstName} {profile2.userLastName}
         </h2>
         <h4>Age: {profile2.userAge}</h4>
       </div>
+
     </div>
+
   );
 }
 

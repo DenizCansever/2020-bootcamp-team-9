@@ -3,7 +3,7 @@ import { fetchTrendingMovies } from "../../service/index";
 import Movies from "../Movies";
 
 const MoviesTrending = () => {
-
+  
   const [trendingMovies, setTrendingMovies] = useState([]);
 
   useEffect(() => {

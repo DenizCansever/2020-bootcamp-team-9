@@ -13,24 +13,27 @@ import Main from "../containers/Home";
 import { GlobalProvider } from "../components/layout/GlobalState";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Container } from "react-bootstrap";
 
 function App() {
   return (
     <GlobalProvider>
       <Router>
         <Navbar />
-        <Switch>
-          <Route exact path="/" component={Main} />
-          <Route path="/signin" component={SignIn} />
-          <Route path="/signup" component={SignUp} />
-          <Route path="/movies" component={MoviesPopular} /> 
-          <Route path="/movies/trending" component={MoviesTrending} />
-          <Route path="/movies/popular" component={MoviesPopular} /> 
-          <Route path="/movie/:id" component={MovieDetail} />
-          <Route path="/about" component={About} />
-          <Route path="/results" component={Results} />
-          <Route path="/profile" component={Profile} />
-        </Switch>
+        <Container fluid className="custom-container">
+          <Switch>
+            <Route exact path="/" component={Main} />
+            <Route path="/signin" component={SignIn} />
+            <Route path="/signup" component={SignUp} />
+            <Route exact path="/movies" component={MoviesPopular} />
+            <Route exact path="/movies/trending" component={MoviesTrending} />
+            <Route exact path="/movies/popular" component={MoviesPopular} />
+            <Route path="/movie/:id" component={MovieDetail} />
+            <Route path="/about" component={About} />
+            <Route path="/results" component={Results} />
+            <Route path="/profile" component={Profile} />
+          </Switch>
+        </Container>
       </Router>
     </GlobalProvider>
   );
