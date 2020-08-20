@@ -4,128 +4,141 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class MovieDetail implements Serializable {
-	
-   private String title;
-   private int year;
-   private MovieId ids;
-   private String tagline; 
-   private String overview; 
-   private String released;
-   private Double rating;
-   private int runtime;
-   private Long votes;
-   private ArrayList<String> genres;
-   private 	String movieClearArtImage;
-   private 	String moviePosterImage;
-   private PeopleList[] people;
-   
 
+	private String title;
+	private int year;
+	private MovieId ids;
+	private String tagline;
+	private String overview;
+	private String released;
+	private Double rating;
+	private int runtime;
+	private Long votes;
+	private String trailer;
+	private String homepage;
+	private ArrayList<String> genres;
+	private String movieClearArtImage;
+	private String moviePosterImage;
+	private PeopleList[] people;
 
+	public String getTrailer() {
+		return trailer;
+	}
 
-public int getRuntime() {
-	return runtime;
-}
+	public void setTrailer(String trailer) {
+		this.trailer = trailer;
+	}
 
-public void setRuntime(int runtime) {
-	this.runtime = runtime;
-}
+	public String getHomepage() {
+		return homepage;
+	}
 
-public PeopleList[] getPeople() {
-	return people;
-}
+	public void setHomepage(String homepage) {
+		this.homepage = homepage;
+	}
 
-public void setPeople(PeopleList[] people) {
-	this.people = people;
-}
+	public int getRuntime() {
+		return runtime;
+	}
 
-public String getMovieClearArtImage() {
-	return movieClearArtImage;
-}
+	public void setRuntime(int runtime) {
+		this.runtime = runtime;
+	}
 
-public void setMovieClearArtImage(String movieClearArtImage) {
-	this.movieClearArtImage = movieClearArtImage;
-}
+	public PeopleList[] getPeople() {
+		return people;
+	}
 
-public String getMoviePosterImage() {
-	return moviePosterImage;
-}
+	public void setPeople(PeopleList[] people) {
+		this.people = people;
+	}
 
-public void setMoviePosterImage(String moviePosterImage) {
-	this.moviePosterImage = moviePosterImage;
-}
+	public String getMovieClearArtImage() {
+		return movieClearArtImage;
+	}
 
-public String getTagline() {
-	return tagline;
-}
+	public void setMovieClearArtImage(String movieClearArtImage) {
+		this.movieClearArtImage = movieClearArtImage;
+	}
 
-public void setTagline(String tagline) {
-	this.tagline = tagline;
-}
+	public String getMoviePosterImage() {
+		return moviePosterImage;
+	}
 
-public String getOverview() {
-	return overview;
-}
+	public void setMoviePosterImage(String moviePosterImage) {
+		this.moviePosterImage = moviePosterImage;
+	}
 
-public void setOverview(String overview) {
-	this.overview = overview;
-}
+	public String getTagline() {
+		return tagline;
+	}
 
-public String getReleased() {
-	return released;
-}
+	public void setTagline(String tagline) {
+		this.tagline = tagline;
+	}
 
-public void setReleased(String released) {
-	this.released = released;
-}
+	public String getOverview() {
+		return overview;
+	}
 
-public Double getRating() {
-	return rating;
-}
+	public void setOverview(String overview) {
+		this.overview = overview;
+	}
 
-public void setRating(Double rating) {
-	this.rating = rating;
-}
+	public String getReleased() {
+		return released;
+	}
 
-public Long getVotes() {
-	return votes;
-}
+	public void setReleased(String released) {
+		this.released = released;
+	}
 
-public void setVotes(Long votes) {
-	this.votes = votes;
-}
+	public Double getRating() {
+		return rating;
+	}
 
+	public void setRating(Double rating) {
+		this.rating = rating;
+	}
 
-public ArrayList<String> getGenres() {
-	return genres;
-}
+	public Long getVotes() {
+		return votes;
+	}
 
-public void setGenres(ArrayList<String> genres) {
-	this.genres = genres;
-}
+	public void setVotes(Long votes) {
+		this.votes = votes;
+	}
 
-public MovieId getIds() {
-	return ids;
-}
+	public ArrayList<String> getGenres() {
+		return genres;
+	}
 
-public void setIds(MovieId ids) {
-	this.ids = ids;
-}
+	public void setGenres(ArrayList<String> genres) {
+		this.genres = genres;
+	}
 
+	public MovieId getIds() {
+		return ids;
+	}
 
-public int getYear() {
-	return year;
-}
+	public void setIds(MovieId ids) {
+		this.ids = ids;
+	}
 
-public void setYear(int year) {
-	this.year = year;
-}
+	public int getYear() {
+		return year;
+	}
 
-public String getTitle() {
-	return title;
-}
+	public void setYear(int year) {
+		this.year = year;
+	}
 
-public void setTitle(String title) {
-	this.title = title;
-} 
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
 }

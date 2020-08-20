@@ -14,6 +14,15 @@ public class User {
 	private String name;
 
 	private List<Movie> watched;
+	private List<Movie> watches;
+
+	public List<Movie> getWatches() {
+		return watches;
+	}
+
+	public void setWatches(List<Movie> watches) {
+		this.watches = watches;
+	}
 
 	public String getId() {
 		return id;
@@ -42,6 +51,15 @@ public class User {
 	public void addMovie(Movie movie) {
 
 		this.watched.add(movie);
+	}
+
+	public void addWatches(Movie movie) {
+		this.watches.add(movie);
+	}
+
+	public void removeWatches(long trakt) {
+
+		this.watches.removeIf(m -> m.getIds().getTrakt() == trakt);
 	}
 
 }

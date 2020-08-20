@@ -19,13 +19,14 @@ public class UserService {
 
 	public void addUser(UserDto userDto) {
 
-		List<Movie> watched = new ArrayList<Movie>();
+		List<Movie> movieList = new ArrayList<Movie>();
 
 		User user = new User();
 
 		user.setId(userDto.getId());
 		user.setName(userDto.getName());
-		user.setWatched(watched);
+		user.setWatched(movieList);
+		user.setWatches(movieList);
 
 		_userRepository.save(user);
 
@@ -44,6 +45,65 @@ public class UserService {
 			return new ArrayList<Movie>();
 		}
 
+	}
+
+	public List<Movie> getWatches(String userId) {
+
+		Optional<User> optionalUser = _userRepository.findById(userId);
+		if (optionalUser.isPresent()) {
+
+			User user = optionalUser.get();
+
+			return user.getWatches();
+		} else {
+
+			return new ArrayList<Movie>();
+		}
+	}
+
+	public List<Movie> addWatches(Movie movie, String userId) {
+
+		Optional<User> optionalUser = _userRepository.findById(userId);
+
+		if (optionalUser.isPresent()) {
+
+			User user = optionalUser.get();
+
+			boolean isMovieExist = user.getWatches().stream()
+					.filter(u -> u.getIds().getTrakt() == movie.getIds().getTrakt()).findFirst().isPresent();
+
+			if (!isMovieExist) {
+
+				user.addWatches(movie);
+				User updatedUser = _userRepository.save(user);
+				return updatedUser.getWatches();
+			}
+
+			return user.getWatches();
+
+		} else {
+			return new ArrayList<Movie>();
+		}
+
+	}
+
+	public List<Movie> removeWatches(long trakt, String userId) {
+
+		Optional<User> optionalUser = _userRepository.findById(userId);
+
+		if (optionalUser.isPresent()) {
+
+			User user = optionalUser.get();
+
+			user.removeWatches(trakt);
+
+			User updatedUser = _userRepository.save(user);
+
+			return updatedUser.getWatches();
+
+		} else {
+			return new ArrayList<Movie>();
+		}
 	}
 
 	public List<Movie> addWatched(Movie movie, String userId) {
