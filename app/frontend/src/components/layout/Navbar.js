@@ -59,7 +59,6 @@ const Navbar = (props) => {
         {/* <Results results={state.results} /> */}
         <Nav className="mr-auto">
           <Nav.Link href="/movies/popular">Movies</Nav.Link>
-          <Nav.Link href="/watched">Watched</Nav.Link>
           <Nav.Link href="/about">About</Nav.Link>
         </Nav>
         <Nav>{links}</Nav>
