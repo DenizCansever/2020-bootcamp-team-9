@@ -9,7 +9,6 @@ import Results from "../components/layout/Results";
 import Movies from "../containers/Movies";
 import MoviesPopular from "../containers/MoviesPopular";
 import MoviesTrending from "../containers/MoviesTrending";
-import Watched from "../components/layout/Watched";
 import Main from "../containers/Home";
 import { GlobalProvider } from "../components/layout/GlobalState";
 
@@ -31,7 +30,6 @@ function App() {
           <Route path="/about" component={About} />
           <Route path="/results" component={Results} />
           <Route path="/profile" component={Profile} />
-          <Route path="/watched" component={Watched} />
         </Switch>
       </Router>
     </GlobalProvider>
