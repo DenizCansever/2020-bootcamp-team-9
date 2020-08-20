@@ -18,6 +18,7 @@ import { Container } from "react-bootstrap";
 function App() {
   return (
     <GlobalProvider>
+      
       <Router>
         <Navbar />
         <Container fluid className="custom-container">

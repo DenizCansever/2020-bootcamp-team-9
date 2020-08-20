@@ -1,14 +1,33 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Button } from "react-bootstrap";
 import { addWatchedMovies, addWatchMovies } from "../../service";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const SectionHero = ({ movie, genres, cast }) => {
   const addWatchedMoviesList = (movie) => {
     addWatchedMovies(movie);
+
+    toast("Movie Added to Watched List", {
+      appearance: 'success',
+      autoDismiss: true,
+      position: "top-center",
+      closeButton: false,
+    })
   };
 
   const addMoviesList = (movie) => {
+
     addWatchMovies(movie);
+
+    toast("Movie Added to Watchlist", {
+      appearance: 'success',
+      autoDismiss: true,
+      position: "top-center",
+      closeButton: false,
+
+    })
   };
 
   function openInNewTab(url) {
@@ -16,6 +35,7 @@ const SectionHero = ({ movie, genres, cast }) => {
   }
 
   return (
+
     <section className="section-hero">
       <div
         className="container-hero"
@@ -23,22 +43,7 @@ const SectionHero = ({ movie, genres, cast }) => {
           backgroundImage: `url(${movie.movieClearArtImage})`,
         }}
       >
-        {/* <Button
-          className="btn-addlist"
-          variant="primary"
-          size="lg"
-          onClick={() => addWatchedMoviesList(movie)}
-        >
-          ADD WATCHED LIST
-        </Button>
-        <Button
-          className="btn-addlist"
-          variant="primary"
-          size="lg"
-          onClick={() => addMoviesList(movie)}
-        >
-          ADD LIST
-        </Button> */}
+        <ToastContainer />
         <div className="image-hero">
           <div className="content-info">
             <h1 style={{ fontSize: "30px", color: "#FFF" }}>{movie.title}</h1>
