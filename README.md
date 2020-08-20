@@ -4,10 +4,10 @@
 
 | Role                | Name   |
 | ------------------- | ------ |
+| Frontend Developer  | Ali    |
+| Frontend Developer  | Deniz  |
 | Frontend Developer  | Filiz  |
 | Frontend Developer  | Zeynep |
-| Frontend Developer  | Ali    |
-| Fullstack Developer | Deniz  |
 | Backend Developer   | Burak  |
 
 ## DistrictX
