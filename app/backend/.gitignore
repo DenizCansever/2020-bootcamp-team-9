@@ -1,1 +1,23 @@
-/target/
+# Java related
+target/**
+*.jar
+*.war
+*.ear
+*.class
+
+# eclipse specific
+*.pydevproject
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+src/main/resources
+.classpath
+.settings/
+.loadpath
+
