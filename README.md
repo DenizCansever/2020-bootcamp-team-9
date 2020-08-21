@@ -15,7 +15,6 @@
 DistrictX is a platform that show movies list as popular,trending with their details that keep infos about actors, year, rating, votes, explanation, where to watch, trailer and primarily keeps track of movies users watched or plan to watch in the future. 
 
 This project's backend is deployed on the [azure](https://eterationmovies.azurewebsites.net/swagger-ui.html#/).
-This project's frontend is deployed on the [azure](https://eterationmovies.azurewebsites.net/swagger-ui.html#/).
 
 
 
