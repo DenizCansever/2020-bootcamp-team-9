@@ -4,7 +4,7 @@ import SectionProfile from "../../components/layout/SectionProfile";
 import Card from "../../components/layout/Card";
 import Spinner from "../../components/layout/Spinner";
 import "../../theme/_cards.scss";
-import { Row } from "react-bootstrap"
+import { Row } from "react-bootstrap";
 
 const Profile = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -29,44 +29,48 @@ const Profile = () => {
   return isLoading ? (
     <Spinner />
   ) : (
-      <div>
-        <SectionProfile />
-        {/* <h4>İzlediklerim</h4>
-      {watchedMovies.map((movie, index) => (
-        <ListCard movie={movie} key={index} />
-      ))}
-
-      <h4>İzleyeceklerim</h4>
-      {watchMovies.map((movie, index) => (
-        <ListCard movie={movie} key={index} />
-      ))} */}
-        <p></p>
-
-        <div className="row">
-          <div className="col-md-12">
-            <h4 >My Watched List</h4>
-            <section className="cards">
-              {watchedMovies.map((movie, index) => (
-                <Card item={movie} key={index} />
-              ))}
-            </section>
-          </div>
-        </div>
-        <p></p>
-
-        <div className="row">
-          <div className="col-md-12">
-            <h4 >My Watchlist</h4>
-            <section className="cards">
-              {watchMovies.map((movie, index) => (
-                <Card item={movie} key={index} />
-              ))}
-            </section>
-          </div>
+    <div>
+      <SectionProfile />
+      <p></p>
+      <div className="row">
+        <div className="col-md-12">
+          <h4
+            style={{
+              fontSize: "30px",
+              fontFamily: "Arial Black, Gadget, sans-serif",
+              textDecoration: "underline",
+            }}
+          >
+            My Watched List
+          </h4>
+          <section className="cards">
+            {watchedMovies.map((movie, index) => (
+              <Card item={movie} key={index} />
+            ))}
+          </section>
         </div>
       </div>
-
-    );
+      <p style={{ marginTop: "50px" }}></p>
+      <div className="row">
+        <div className="col-md-12">
+          <h4
+            style={{
+              fontSize: "30px",
+              fontFamily: "Arial Black, Gadget, sans-serif",
+              textDecoration: "underline",
+            }}
+          >
+            My Watchlist
+          </h4>
+          <section className="cards">
+            {watchMovies.map((movie, index) => (
+              <Card item={movie} key={index} />
+            ))}
+          </section>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Profile;

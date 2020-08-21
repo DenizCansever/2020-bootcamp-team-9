@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import { fetchMovieDetail, fetchPopularMovies } from "../../service";
 import SectionHero from "../../components/layout/SectionHero";
 import Spinner from "../../components/layout/Spinner";
-//import SectionMoreDetails from "../../components/layout/SectionMoreDetails";
 
 import { Row, Col } from "react-bootstrap";
 import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
@@ -47,8 +46,6 @@ function MovieDetail({ match }) {
     castList = cast.slice(0, 5).map((c, i) => {
       return (
         <li className="list-inline-item" key={i}>
-          {/* {c.person.name + " as " + c.character} */}
-          {/* {c.person.name + " (" + c.character + ")" + ","} */}
           {c.person.name + ","}
         </li>
       );
