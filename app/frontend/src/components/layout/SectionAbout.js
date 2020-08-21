@@ -36,7 +36,7 @@ export class SectionAbout extends Component {
             DistrictX is a platform that primarily keeps track of TV shows and
             movies you watched or plan to watch in the future. There are also
             some features enable users to add TV shows and movies to their
-            personal lists.
+            personal Watched List and Watchlist.
           </p>
           <p
             style={{
@@ -46,14 +46,13 @@ export class SectionAbout extends Component {
           >
             DistrictX also makes it easy to reach the information related to
             movies and TV shows – including a short overview, genres, cast,
-            released dates, runtime, votes and ratings.
+            released dates, runtime, where-to-watch, trailer, votes and ratings.
           </p>
           <p
             style={{
               fontSize: "18px",
               fontFamily: "Georgia,times new roman,Times,serif",
               fontStyle: "italic",
-              // color: "#069c9e",
               color: "red",
             }}
           >
@@ -65,7 +64,7 @@ export class SectionAbout extends Component {
               fontSize: "16px",
             }}
           >
-            Sign up now, start managing your personal TV & movie lists, see
+            Sign up now, start managing your personal TV & movie lists, discover
             what's trending and popular.
           </p>
         </div>

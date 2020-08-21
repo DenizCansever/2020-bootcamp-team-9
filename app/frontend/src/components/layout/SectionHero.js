@@ -1,33 +1,30 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Button } from "react-bootstrap";
 import { addWatchedMovies, addWatchMovies } from "../../service";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SectionHero = ({ movie, genres, cast }) => {
   const addWatchedMoviesList = (movie) => {
     addWatchedMovies(movie);
 
     toast("Movie Added to Watched List", {
-      appearance: 'success',
+      appearance: "success",
       autoDismiss: true,
       position: "top-center",
       closeButton: false,
-    })
+    });
   };
 
   const addMoviesList = (movie) => {
-
     addWatchMovies(movie);
 
     toast("Movie Added to Watchlist", {
-      appearance: 'success',
+      appearance: "success",
       autoDismiss: true,
       position: "top-center",
       closeButton: false,
-
-    })
+    });
   };
 
   function openInNewTab(url) {
@@ -35,7 +32,6 @@ const SectionHero = ({ movie, genres, cast }) => {
   }
 
   return (
-
     <section className="section-hero">
       <div
         className="container-hero"
@@ -133,15 +129,7 @@ const SectionHero = ({ movie, genres, cast }) => {
                   color: "#a3a3a3",
                   paddingLeft: "15px",
                 }}
-              >
-                {/* <a
-                  href=""
-                  onClick={() => openInNewTab(movie.homepage)}
-                  style={{ color: "#a3a3a3" }}
-                >
-                  Find Where To Watch
-                </a> */}
-              </span>
+              ></span>
             </div>
             <p></p>
             <div>
